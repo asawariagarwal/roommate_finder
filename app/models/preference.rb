@@ -5,6 +5,9 @@ class Preference < ApplicationRecord
 
   # Direct associations
 
+  has_many   :amenity_preferences,
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations
