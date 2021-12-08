@@ -1,4 +1,6 @@
 class Listing < ApplicationRecord
+  mount_uploader :floorplan, FloorplanUploader
+
   enum unit_type: {"b2b_3b3b_1b"=>0} 
 
   # Direct associations

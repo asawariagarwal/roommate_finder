@@ -146,7 +146,7 @@
 
     <%= f.label :floorplan %>
     <!-- Input for floorplan start -->
-    <%= f.text_field :floorplan, class: floorplan_class, placeholder: "Enter floorplan" %>
+    <%= f.file_field :floorplan, class: "form-control" %>
     <!-- Input for floorplan end -->
     <% if floorplan_was_invalid %>
       <% listing.errors.full_messages_for(:floorplan).each do |message| %>

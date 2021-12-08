@@ -32,7 +32,9 @@
 
       <dt>Floorplan</dt>
       <!-- Display floorplan start -->
-      <dd><%= listing.floorplan %></dd>
+      <dd>
+        <%= cl_image_tag @listing.floorplan, class: "img-fluid" %>
+      </dd>
       <!-- Display floorplan end -->
 
     </dl>
