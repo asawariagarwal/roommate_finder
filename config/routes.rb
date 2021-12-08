@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :listing_photos
   resources :listings
   resources :amenities
   resources :buildings
