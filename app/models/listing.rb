@@ -3,6 +3,9 @@ class Listing < ApplicationRecord
 
   # Direct associations
 
+  has_many   :favorites,
+             :dependent => :destroy
+
   belongs_to :building
 
   # Indirect associations
