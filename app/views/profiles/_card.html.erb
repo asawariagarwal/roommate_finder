@@ -7,7 +7,11 @@
     <dl class="mb-1">
       <dt>User</dt>
       <!-- Display user_id start -->
-      <dd><%= profile.user_id %></dd>
+      <dd>
+        <% if @profile.user.present? %>
+          <%= link_to profile.user, profile.user %>
+        <% end %>
+      </dd>
       <!-- Display user_id end -->
 
       <dt>First name</dt>

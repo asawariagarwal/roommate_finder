@@ -7,17 +7,29 @@
     <dl class="mb-1">
       <dt>Sender user</dt>
       <!-- Display sender_user_id start -->
-      <dd><%= message.sender_user_id %></dd>
+      <dd>
+        <% if @message.sender_user.present? %>
+          <%= link_to message.sender_user, message.sender_user %>
+        <% end %>
+      </dd>
       <!-- Display sender_user_id end -->
 
       <dt>Receiver user</dt>
       <!-- Display receiver_user_id start -->
-      <dd><%= message.receiver_user_id %></dd>
+      <dd>
+        <% if @message.receiver_user.present? %>
+          <%= link_to message.receiver_user, message.receiver_user %>
+        <% end %>
+      </dd>
       <!-- Display receiver_user_id end -->
 
       <dt>Listing</dt>
       <!-- Display listing_id start -->
-      <dd><%= message.listing_id %></dd>
+      <dd>
+        <% if @message.listing.present? %>
+          <%= link_to message.listing, message.listing %>
+        <% end %>
+      </dd>
       <!-- Display listing_id end -->
 
       <dt>Body</dt>

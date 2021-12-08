@@ -7,7 +7,11 @@
     <dl class="mb-1">
       <dt>Listing</dt>
       <!-- Display listing_id start -->
-      <dd><%= listing_photo.listing_id %></dd>
+      <dd>
+        <% if @listing_photo.listing.present? %>
+          <%= link_to listing_photo.listing, listing_photo.listing %>
+        <% end %>
+      </dd>
       <!-- Display listing_id end -->
 
       <dt>Photo</dt>

@@ -7,12 +7,20 @@
     <dl class="mb-1">
       <dt>Building</dt>
       <!-- Display building_id start -->
-      <dd><%= building_amenity.building_id %></dd>
+      <dd>
+        <% if @building_amenity.building.present? %>
+          <%= link_to building_amenity.building, building_amenity.building %>
+        <% end %>
+      </dd>
       <!-- Display building_id end -->
 
       <dt>Amenity</dt>
       <!-- Display amenity_id start -->
-      <dd><%= building_amenity.amenity_id %></dd>
+      <dd>
+        <% if @building_amenity.amenity.present? %>
+          <%= link_to building_amenity.amenity, building_amenity.amenity %>
+        <% end %>
+      </dd>
       <!-- Display amenity_id end -->
 
     </dl>

@@ -7,7 +7,11 @@
     <dl class="mb-1">
       <dt>Building</dt>
       <!-- Display building_id start -->
-      <dd><%= listing.building_id %></dd>
+      <dd>
+        <% if @listing.building.present? %>
+          <%= link_to listing.building, listing.building %>
+        <% end %>
+      </dd>
       <!-- Display building_id end -->
 
       <dt>Unit type</dt>

@@ -7,12 +7,20 @@
     <dl class="mb-1">
       <dt>Amenity</dt>
       <!-- Display amenity_id start -->
-      <dd><%= amenity_preference.amenity_id %></dd>
+      <dd>
+        <% if @amenity_preference.amenity.present? %>
+          <%= link_to amenity_preference.amenity, amenity_preference.amenity %>
+        <% end %>
+      </dd>
       <!-- Display amenity_id end -->
 
       <dt>Preference</dt>
       <!-- Display preference_id start -->
-      <dd><%= amenity_preference.preference_id %></dd>
+      <dd>
+        <% if @amenity_preference.preference.present? %>
+          <%= link_to amenity_preference.preference, amenity_preference.preference %>
+        <% end %>
+      </dd>
       <!-- Display preference_id end -->
 
     </dl>
