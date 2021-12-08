@@ -16,7 +16,7 @@
 
     <%= f.label :amenity_id %>
     <!-- Input for amenity_id start -->
-    <%= f.number_field :amenity_id, class: amenity_class, placeholder: "Enter amenity" %>
+    <%= f.collection_select :amenity_id, Amenity.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for amenity_id end -->
     <% if amenity_was_invalid %>
       <% amenity_preference.errors.full_messages_for(:amenity).each do |message| %>
