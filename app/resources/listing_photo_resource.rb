@@ -8,6 +8,8 @@ class ListingPhotoResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :listing
+
   # Indirect associations
 
 end
