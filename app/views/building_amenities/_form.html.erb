@@ -1,0 +1,57 @@
+<% was_validated = building_amenity.errors.any? %>
+
+<%= form_with(model: building_amenity, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for building_id start -->
+  <div class="form-group">
+    <% building_class = "form-control" %>
+    <% building_was_invalid = building_amenity.errors.include?(:building) %>
+
+    <% if was_validated %>
+      <% if building_was_invalid %>
+        <% building_class << " is-invalid" %>
+      <% else %>
+        <% building_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :building_id %>
+    <!-- Input for building_id start -->
+    <%= f.number_field :building_id, class: building_class, placeholder: "Enter building" %>
+    <!-- Input for building_id end -->
+    <% if building_was_invalid %>
+      <% building_amenity.errors.full_messages_for(:building).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for building_id end -->
+  <!-- Label and input for amenity_id start -->
+  <div class="form-group">
+    <% amenity_class = "form-control" %>
+    <% amenity_was_invalid = building_amenity.errors.include?(:amenity) %>
+
+    <% if was_validated %>
+      <% if amenity_was_invalid %>
+        <% amenity_class << " is-invalid" %>
+      <% else %>
+        <% amenity_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :amenity_id %>
+    <!-- Input for amenity_id start -->
+    <%= f.number_field :amenity_id, class: amenity_class, placeholder: "Enter amenity" %>
+    <!-- Input for amenity_id end -->
+    <% if amenity_was_invalid %>
+      <% building_amenity.errors.full_messages_for(:amenity).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for amenity_id end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
