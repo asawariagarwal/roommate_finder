@@ -11,6 +11,10 @@ class Amenity < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :user_preferences,
+             :through => :amenity_preferences,
+             :source => :preference
+
   # Validations
 
   # Scopes

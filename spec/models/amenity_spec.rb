@@ -12,6 +12,8 @@ RSpec.describe Amenity, type: :model do
 
     describe "InDirect Associations" do
 
+    it { should have_many(:user_preferences) }
+
     end
 
     describe "Validations" do

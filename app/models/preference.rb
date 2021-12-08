@@ -12,6 +12,10 @@ class Preference < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :amenities,
+             :through => :amenity_preferences,
+             :source => :amenity
+
   # Validations
 
   # Scopes
