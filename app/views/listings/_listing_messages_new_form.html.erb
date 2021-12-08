@@ -17,7 +17,7 @@
     <%= f.label :receiver_user_id %>
 
     <!-- Input for receiver_user_id start -->
-    <%= f.text_field :receiver_user_id, class: "form-control" %>
+    <%= f.collection_select :receiver_user_id, User.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for receiver_user_id end -->
   </div>
   <!-- Label and input for receiver_user_id end -->
