@@ -7,6 +7,8 @@ class BuildingAmenityResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :amenity
+
   belongs_to :building
 
   # Indirect associations

@@ -7,6 +7,8 @@ class AmenityResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :building_amenities
+
   # Indirect associations
 
 end
