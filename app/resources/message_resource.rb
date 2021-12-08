@@ -9,6 +9,9 @@ class MessageResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :sender_user,
+             resource: UserResource
+
   belongs_to :listing
 
   # Indirect associations
