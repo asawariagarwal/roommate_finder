@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users
+  resources :users
   resources :favorites
   resources :building_photos
   resources :listing_photos
