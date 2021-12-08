@@ -1,0 +1,57 @@
+<% was_validated = amenity_preference.errors.any? %>
+
+<%= form_with(model: amenity_preference, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for amenity_id start -->
+  <div class="form-group">
+    <% amenity_class = "form-control" %>
+    <% amenity_was_invalid = amenity_preference.errors.include?(:amenity) %>
+
+    <% if was_validated %>
+      <% if amenity_was_invalid %>
+        <% amenity_class << " is-invalid" %>
+      <% else %>
+        <% amenity_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :amenity_id %>
+    <!-- Input for amenity_id start -->
+    <%= f.number_field :amenity_id, class: amenity_class, placeholder: "Enter amenity" %>
+    <!-- Input for amenity_id end -->
+    <% if amenity_was_invalid %>
+      <% amenity_preference.errors.full_messages_for(:amenity).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for amenity_id end -->
+  <!-- Label and input for preference_id start -->
+  <div class="form-group">
+    <% preference_class = "form-control" %>
+    <% preference_was_invalid = amenity_preference.errors.include?(:preference) %>
+
+    <% if was_validated %>
+      <% if preference_was_invalid %>
+        <% preference_class << " is-invalid" %>
+      <% else %>
+        <% preference_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :preference_id %>
+    <!-- Input for preference_id start -->
+    <%= f.number_field :preference_id, class: preference_class, placeholder: "Enter preference" %>
+    <!-- Input for preference_id end -->
+    <% if preference_was_invalid %>
+      <% amenity_preference.errors.full_messages_for(:preference).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for preference_id end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>

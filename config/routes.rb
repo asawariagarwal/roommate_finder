@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :amenity_preferences
   resources :building_amenities
   devise_for :users
   resources :users
