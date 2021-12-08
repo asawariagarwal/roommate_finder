@@ -15,6 +15,8 @@ class PreferenceResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :amenity_preferences
+
   # Indirect associations
 
 end
