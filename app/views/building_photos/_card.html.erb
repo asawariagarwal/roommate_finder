@@ -1,0 +1,51 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Building Photo #<%= building_photo.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Building</dt>
+      <!-- Display building_id start -->
+      <dd><%= building_photo.building_id %></dd>
+      <!-- Display building_id end -->
+
+      <dt>Photo</dt>
+      <!-- Display photo start -->
+      <dd><%= building_photo.photo %></dd>
+      <!-- Display photo end -->
+
+      <dt>Caption</dt>
+      <!-- Display caption start -->
+      <dd><%= building_photo.caption %></dd>
+      <!-- Display caption end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back building_photo, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link building_photo start -->
+      <div class="col">
+        <%= link_to edit_building_photo_url(building_photo), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link building_photo end -->
+
+      <!-- Delete link building_photo start -->
+      <div class="col">
+        <%= link_to building_photo, method: :delete, data: { confirm: "Do you really want to delete this building_photo?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link building_photo end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(building_photo.updated_at) %> ago
+  </div>
+</div>
