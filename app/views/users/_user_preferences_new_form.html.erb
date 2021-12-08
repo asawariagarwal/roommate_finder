@@ -91,7 +91,7 @@
     <%= f.label :roommie_gender_preference %>
 
     <!-- Input for roommie_gender_preference start -->
-    <%= f.text_field :roommie_gender_preference, class: "form-control" %>
+    <%= f.select :roommie_gender_preference, options_for_select(Preference.roommie_gender_preferences.keys), {}, class: "form-control" %>
     <!-- Input for roommie_gender_preference end -->
   </div>
   <!-- Label and input for roommie_gender_preference end -->

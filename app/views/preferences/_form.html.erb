@@ -249,7 +249,7 @@
 
     <%= f.label :roommie_gender_preference %>
     <!-- Input for roommie_gender_preference start -->
-    <%= f.number_field :roommie_gender_preference, class: roommie_gender_preference_class, placeholder: "Enter roommie gender preference" %>
+    <%= f.select :roommie_gender_preference, options_for_select(Preference.roommie_gender_preferences.keys), {}, class: "form-control" %>
     <!-- Input for roommie_gender_preference end -->
     <% if roommie_gender_preference_was_invalid %>
       <% preference.errors.full_messages_for(:roommie_gender_preference).each do |message| %>
