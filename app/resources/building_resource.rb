@@ -10,6 +10,8 @@ class BuildingResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :building_photos
+
   # Indirect associations
 
 end

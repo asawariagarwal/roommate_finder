@@ -8,6 +8,8 @@ class BuildingPhotoResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :building
+
   # Indirect associations
 
 end
