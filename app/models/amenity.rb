@@ -3,6 +3,9 @@ class Amenity < ApplicationRecord
 
   # Direct associations
 
+  has_many   :amenity_preferences,
+             :dependent => :destroy
+
   has_many   :building_amenities,
              :dependent => :destroy
 
