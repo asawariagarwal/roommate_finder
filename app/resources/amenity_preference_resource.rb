@@ -7,6 +7,8 @@ class AmenityPreferenceResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :amenity
+
   belongs_to :preference
 
   # Indirect associations
