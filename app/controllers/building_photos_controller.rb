@@ -3,7 +3,7 @@ class BuildingPhotosController < ApplicationController
 
   # GET /building_photos
   def index
-    @building_photos = BuildingPhoto.all
+    @building_photos = BuildingPhoto.page(params[:page]).per(10)
   end
 
   # GET /building_photos/1

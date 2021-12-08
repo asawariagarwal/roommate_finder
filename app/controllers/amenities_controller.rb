@@ -3,7 +3,7 @@ class AmenitiesController < ApplicationController
 
   # GET /amenities
   def index
-    @amenities = Amenity.all
+    @amenities = Amenity.page(params[:page]).per(10)
   end
 
   # GET /amenities/1

@@ -3,7 +3,7 @@ class AmenityPreferencesController < ApplicationController
 
   # GET /amenity_preferences
   def index
-    @amenity_preferences = AmenityPreference.all
+    @amenity_preferences = AmenityPreference.page(params[:page]).per(10)
   end
 
   # GET /amenity_preferences/1

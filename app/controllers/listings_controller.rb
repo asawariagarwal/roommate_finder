@@ -3,7 +3,7 @@ class ListingsController < ApplicationController
 
   # GET /listings
   def index
-    @listings = Listing.all
+    @listings = Listing.page(params[:page]).per(10)
   end
 
   # GET /listings/1

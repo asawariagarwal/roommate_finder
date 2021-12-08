@@ -3,7 +3,7 @@ class BuildingAmenitiesController < ApplicationController
 
   # GET /building_amenities
   def index
-    @building_amenities = BuildingAmenity.all
+    @building_amenities = BuildingAmenity.page(params[:page]).per(10)
   end
 
   # GET /building_amenities/1
