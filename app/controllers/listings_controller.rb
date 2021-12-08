@@ -3,7 +3,8 @@ class ListingsController < ApplicationController
 
   # GET /listings
   def index
-    @listings = Listing.page(params[:page]).per(10)
+    @q = Listing.ransack(params[:q])
+    @listings = @q.result(:distinct => true).includes(:building, :favorites, :listing_photos, :messages).page(params[:page]).per(10)
   end
 
   # GET /listings/1

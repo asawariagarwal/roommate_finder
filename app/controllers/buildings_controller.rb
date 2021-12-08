@@ -3,7 +3,8 @@ class BuildingsController < ApplicationController
 
   # GET /buildings
   def index
-    @buildings = Building.page(params[:page]).per(10)
+    @q = Building.ransack(params[:q])
+    @buildings = @q.result(:distinct => true).includes(:building_photos, :building_amenities, :listings, :amenities).page(params[:page]).per(10)
   end
 
   # GET /buildings/1

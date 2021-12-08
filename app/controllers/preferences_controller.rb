@@ -5,7 +5,8 @@ class PreferencesController < ApplicationController
 
   # GET /preferences
   def index
-    @preferences = Preference.page(params[:page]).per(10)
+    @q = Preference.ransack(params[:q])
+    @preferences = @q.result(:distinct => true).includes(:amenity_preferences, :user, :amenities).page(params[:page]).per(10)
   end
 
   # GET /preferences/1

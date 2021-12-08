@@ -3,7 +3,8 @@ class AmenityPreferencesController < ApplicationController
 
   # GET /amenity_preferences
   def index
-    @amenity_preferences = AmenityPreference.page(params[:page]).per(10)
+    @q = AmenityPreference.ransack(params[:q])
+    @amenity_preferences = @q.result(:distinct => true).includes(:preference, :amenity).page(params[:page]).per(10)
   end
 
   # GET /amenity_preferences/1

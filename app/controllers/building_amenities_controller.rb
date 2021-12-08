@@ -3,7 +3,8 @@ class BuildingAmenitiesController < ApplicationController
 
   # GET /building_amenities
   def index
-    @building_amenities = BuildingAmenity.page(params[:page]).per(10)
+    @q = BuildingAmenity.ransack(params[:q])
+    @building_amenities = @q.result(:distinct => true).includes(:building, :amenity).page(params[:page]).per(10)
   end
 
   # GET /building_amenities/1
