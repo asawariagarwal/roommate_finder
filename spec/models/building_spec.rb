@@ -14,6 +14,8 @@ RSpec.describe Building, type: :model do
 
     describe "InDirect Associations" do
 
+    it { should have_many(:amenities) }
+
     end
 
     describe "Validations" do

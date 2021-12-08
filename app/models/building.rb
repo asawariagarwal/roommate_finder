@@ -14,6 +14,10 @@ class Building < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :amenities,
+             :through => :building_amenities,
+             :source => :amenity
+
   # Validations
 
   # Scopes
