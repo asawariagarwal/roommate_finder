@@ -3,6 +3,9 @@ class Building < ApplicationRecord
 
   # Direct associations
 
+  has_many   :building_amenities,
+             :dependent => :destroy
+
   has_many   :building_photos,
              :dependent => :destroy
 
