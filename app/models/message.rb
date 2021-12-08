@@ -1,6 +1,9 @@
 class Message < ApplicationRecord
   # Direct associations
 
+  belongs_to :sender_user,
+             :class_name => "User"
+
   belongs_to :listing
 
   # Indirect associations
