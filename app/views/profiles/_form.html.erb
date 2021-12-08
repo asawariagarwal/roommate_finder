@@ -1,12 +1,7 @@
 <% was_validated = profile.errors.any? %>
 
 <%= form_with(model: profile, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for user_id start -->
-  <!-- Input for "user_id" start -->
   <%= f.hidden_field :user_id, value: current_user.id %>
-  <!-- Input for "user_id" end -->
-  <!-- Label and input for user_id end -->
-  <!-- Label and input for first_name start -->
   <div class="form-group">
     <% first_name_class = "form-control" %>
     <% first_name_was_invalid = profile.errors.include?(:first_name) %>
@@ -20,9 +15,7 @@
     <% end %>
 
     <%= f.label :first_name %>
-    <!-- Input for first_name start -->
     <%= f.text_field :first_name, class: first_name_class, placeholder: "Enter first name" %>
-    <!-- Input for first_name end -->
     <% if first_name_was_invalid %>
       <% profile.errors.full_messages_for(:first_name).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -31,8 +24,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for first_name end -->
-  <!-- Label and input for last_name start -->
   <div class="form-group">
     <% last_name_class = "form-control" %>
     <% last_name_was_invalid = profile.errors.include?(:last_name) %>
@@ -46,9 +37,7 @@
     <% end %>
 
     <%= f.label :last_name %>
-    <!-- Input for last_name start -->
     <%= f.text_field :last_name, class: last_name_class, placeholder: "Enter last name" %>
-    <!-- Input for last_name end -->
     <% if last_name_was_invalid %>
       <% profile.errors.full_messages_for(:last_name).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -57,8 +46,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for last_name end -->
-  <!-- Label and input for gender start -->
   <div class="form-group">
     <% gender_class = "form-control" %>
     <% gender_was_invalid = profile.errors.include?(:gender) %>
@@ -72,9 +59,7 @@
     <% end %>
 
     <%= f.label :gender %>
-    <!-- Input for gender start -->
     <%= f.select :gender, options_for_select(Profile.genders.keys), {}, class: "form-control" %>
-    <!-- Input for gender end -->
     <% if gender_was_invalid %>
       <% profile.errors.full_messages_for(:gender).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -83,8 +68,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for gender end -->
-  <!-- Label and input for age start -->
   <div class="form-group">
     <% age_class = "form-control" %>
     <% age_was_invalid = profile.errors.include?(:age) %>
@@ -98,9 +81,7 @@
     <% end %>
 
     <%= f.label :age %>
-    <!-- Input for age start -->
     <%= f.number_field :age, class: age_class, placeholder: "Enter age" %>
-    <!-- Input for age end -->
     <% if age_was_invalid %>
       <% profile.errors.full_messages_for(:age).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -109,8 +90,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for age end -->
-  <!-- Label and input for occupation start -->
   <div class="form-group">
     <% occupation_class = "form-control" %>
     <% occupation_was_invalid = profile.errors.include?(:occupation) %>
@@ -124,9 +103,7 @@
     <% end %>
 
     <%= f.label :occupation %>
-    <!-- Input for occupation start -->
     <%= f.text_field :occupation, class: occupation_class, placeholder: "Enter occupation" %>
-    <!-- Input for occupation end -->
     <% if occupation_was_invalid %>
       <% profile.errors.full_messages_for(:occupation).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -135,8 +112,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for occupation end -->
-  <!-- Label and input for current_city start -->
   <div class="form-group">
     <% current_city_class = "form-control" %>
     <% current_city_was_invalid = profile.errors.include?(:current_city) %>
@@ -150,9 +125,7 @@
     <% end %>
 
     <%= f.label :current_city %>
-    <!-- Input for current_city start -->
     <%= f.text_field :current_city, class: current_city_class, placeholder: "Enter current city" %>
-    <!-- Input for current_city end -->
     <% if current_city_was_invalid %>
       <% profile.errors.full_messages_for(:current_city).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -161,8 +134,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for current_city end -->
-  <!-- Label and input for pet_owner start -->
   <div class="form-check">
     <% pet_owner_class = "form-check-input" %>
     <% pet_owner_was_invalid = profile.errors.include?(:pet_owner) %>
@@ -186,8 +157,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for pet_owner end -->
-  <!-- Label and input for pet_description start -->
   <div class="form-group">
     <% pet_description_class = "form-control" %>
     <% pet_description_was_invalid = profile.errors.include?(:pet_description) %>
@@ -201,9 +170,7 @@
     <% end %>
 
     <%= f.label :pet_description %>
-    <!-- Input for pet_description start -->
     <%= f.text_field :pet_description, class: pet_description_class, placeholder: "Enter pet description" %>
-    <!-- Input for pet_description end -->
     <% if pet_description_was_invalid %>
       <% profile.errors.full_messages_for(:pet_description).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -212,8 +179,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for pet_description end -->
-  <!-- Label and input for about_me start -->
   <div class="form-group">
     <% about_me_class = "form-control" %>
     <% about_me_was_invalid = profile.errors.include?(:about_me) %>
@@ -227,9 +192,7 @@
     <% end %>
 
     <%= f.label :about_me %>
-    <!-- Input for about_me start -->
     <%= f.text_area :about_me, class: about_me_class, placeholder: "Enter about me" %>
-    <!-- Input for about_me end -->
     <% if about_me_was_invalid %>
       <% profile.errors.full_messages_for(:about_me).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -238,6 +201,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for about_me end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

@@ -1,7 +1,6 @@
 <% was_validated = building_amenity.errors.any? %>
 
 <%= form_with(model: building_amenity, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for building_id start -->
   <div class="form-group">
     <% building_class = "form-control" %>
     <% building_was_invalid = building_amenity.errors.include?(:building) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :building_id %>
-    <!-- Input for building_id start -->
     <%= f.collection_select :building_id, Building.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for building_id end -->
     <% if building_was_invalid %>
       <% building_amenity.errors.full_messages_for(:building).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for building_id end -->
-  <!-- Label and input for amenity_id start -->
   <div class="form-group">
     <% amenity_class = "form-control" %>
     <% amenity_was_invalid = building_amenity.errors.include?(:amenity) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :amenity_id %>
-    <!-- Input for amenity_id start -->
     <%= f.collection_select :amenity_id, Amenity.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for amenity_id end -->
     <% if amenity_was_invalid %>
       <% building_amenity.errors.full_messages_for(:amenity).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,6 +45,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for amenity_id end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

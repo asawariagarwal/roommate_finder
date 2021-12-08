@@ -1,100 +1,58 @@
-<!-- Form profile start -->
 <%= form_with(model: @profile, local: true) do |f| %>
-<!-- Form profile end -->
 
-  <!-- Label and input for user_id start -->
-  <!-- Input for user_id start -->
   <%= f.hidden_field :user_id, value: @user.id %>
-  <!-- Input for user_id end -->
-  <!-- Label and input for user_id end -->
 
-  <!-- Label and input for first_name start -->
   <div class="form-group">
     <%= f.label :first_name %>
 
-    <!-- Input for first_name start -->
     <%= f.text_field :first_name, class: "form-control" %>
-    <!-- Input for first_name end -->
   </div>
-  <!-- Label and input for first_name end -->
 
-  <!-- Label and input for last_name start -->
   <div class="form-group">
     <%= f.label :last_name %>
 
-    <!-- Input for last_name start -->
     <%= f.text_field :last_name, class: "form-control" %>
-    <!-- Input for last_name end -->
   </div>
-  <!-- Label and input for last_name end -->
 
-  <!-- Label and input for gender start -->
   <div class="form-group">
     <%= f.label :gender %>
 
-    <!-- Input for gender start -->
     <%= f.select :gender, options_for_select(Profile.genders.keys), {}, class: "form-control" %>
-    <!-- Input for gender end -->
   </div>
-  <!-- Label and input for gender end -->
 
-  <!-- Label and input for age start -->
   <div class="form-group">
     <%= f.label :age %>
 
-    <!-- Input for age start -->
     <%= f.text_field :age, class: "form-control" %>
-    <!-- Input for age end -->
   </div>
-  <!-- Label and input for age end -->
 
-  <!-- Label and input for occupation start -->
   <div class="form-group">
     <%= f.label :occupation %>
 
-    <!-- Input for occupation start -->
     <%= f.text_field :occupation, class: "form-control" %>
-    <!-- Input for occupation end -->
   </div>
-  <!-- Label and input for occupation end -->
 
-  <!-- Label and input for current_city start -->
   <div class="form-group">
     <%= f.label :current_city %>
 
-    <!-- Input for current_city start -->
     <%= f.text_field :current_city, class: "form-control" %>
-    <!-- Input for current_city end -->
   </div>
-  <!-- Label and input for current_city end -->
 
-  <!-- Label and input for pet_owner start -->
   <div class="form-check">
-    <!-- Input for pet_owner start -->
     <%= f.check_box :pet_owner, class: "form-check-input" %>
-    <!-- Input for pet_owner end -->
     <%= f.label :pet_owner, class: "form-check-label" %>
   </div>
-  <!-- Label and input for pet_owner end -->
 
-  <!-- Label and input for pet_description start -->
   <div class="form-group">
     <%= f.label :pet_description %>
 
-    <!-- Input for pet_description start -->
     <%= f.text_field :pet_description, class: "form-control" %>
-    <!-- Input for pet_description end -->
   </div>
-  <!-- Label and input for pet_description end -->
 
-  <!-- Label and input for about_me start -->
   <div class="form-group">
     <%= f.label :about_me %>
-    <!-- Input for about_me start -->
     <%= f.text_area :about_me, rows: "3", class: "form-control" %>
-    <!-- Input for about_me end -->
   </div>
-  <!-- Label and input for about_me end -->
 
   <%= f.submit "Create profile", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

@@ -1,7 +1,6 @@
 <% was_validated = message.errors.any? %>
 
 <%= form_with(model: message, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for sender_user_id start -->
   <div class="form-group">
     <% sender_user_class = "form-control" %>
     <% sender_user_was_invalid = message.errors.include?(:sender_user) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :sender_user_id %>
-    <!-- Input for sender_user_id start -->
     <%= f.collection_select :sender_user_id, User.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for sender_user_id end -->
     <% if sender_user_was_invalid %>
       <% message.errors.full_messages_for(:sender_user).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for sender_user_id end -->
-  <!-- Label and input for receiver_user_id start -->
   <div class="form-group">
     <% receiver_user_class = "form-control" %>
     <% receiver_user_was_invalid = message.errors.include?(:receiver_user) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :receiver_user_id %>
-    <!-- Input for receiver_user_id start -->
     <%= f.collection_select :receiver_user_id, User.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for receiver_user_id end -->
     <% if receiver_user_was_invalid %>
       <% message.errors.full_messages_for(:receiver_user).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for receiver_user_id end -->
-  <!-- Label and input for listing_id start -->
   <div class="form-group">
     <% listing_class = "form-control" %>
     <% listing_was_invalid = message.errors.include?(:listing) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :listing_id %>
-    <!-- Input for listing_id start -->
     <%= f.collection_select :listing_id, Listing.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for listing_id end -->
     <% if listing_was_invalid %>
       <% message.errors.full_messages_for(:listing).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,8 +67,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for listing_id end -->
-  <!-- Label and input for body start -->
   <div class="form-group">
     <% body_class = "form-control" %>
     <% body_was_invalid = message.errors.include?(:body) %>
@@ -93,9 +80,7 @@
     <% end %>
 
     <%= f.label :body %>
-    <!-- Input for body start -->
     <%= f.text_area :body, class: body_class, placeholder: "Enter body" %>
-    <!-- Input for body end -->
     <% if body_was_invalid %>
       <% message.errors.full_messages_for(:body).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -104,6 +89,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for body end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

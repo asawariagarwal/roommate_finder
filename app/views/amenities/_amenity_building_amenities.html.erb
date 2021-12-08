@@ -10,24 +10,18 @@
   <ul class="list-group list-group-flush">
     <% @amenity.building_amenities.each do |building_amenity| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <%= link_to building_amenity, building_amenity %>
-        <!-- Show link end -->
 
-        <!-- Delete link start -->
         <%= link_to building_amenity, method: :delete, data: { confirm: "Do you really want to delete this building_amenity" } do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
-        <!-- Delete link end -->
 
       </li>
     <% end %>
 
     <div class="card-footer">
       <div class="collapse" id="amenity_building_amenities_new_form">
-        <!-- New associationcollection form start -->
         <%= render partial: "amenities/amenity_building_amenities_new_form" %>
-        <!-- New associationcollection form end -->
       </div>
     </div>
 

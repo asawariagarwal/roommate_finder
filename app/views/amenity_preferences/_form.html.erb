@@ -1,7 +1,6 @@
 <% was_validated = amenity_preference.errors.any? %>
 
 <%= form_with(model: amenity_preference, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for amenity_id start -->
   <div class="form-group">
     <% amenity_class = "form-control" %>
     <% amenity_was_invalid = amenity_preference.errors.include?(:amenity) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :amenity_id %>
-    <!-- Input for amenity_id start -->
     <%= f.collection_select :amenity_id, Amenity.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for amenity_id end -->
     <% if amenity_was_invalid %>
       <% amenity_preference.errors.full_messages_for(:amenity).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for amenity_id end -->
-  <!-- Label and input for preference_id start -->
   <div class="form-group">
     <% preference_class = "form-control" %>
     <% preference_was_invalid = amenity_preference.errors.include?(:preference) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :preference_id %>
-    <!-- Input for preference_id start -->
     <%= f.collection_select :preference_id, Preference.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for preference_id end -->
     <% if preference_was_invalid %>
       <% amenity_preference.errors.full_messages_for(:preference).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,6 +45,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for preference_id end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

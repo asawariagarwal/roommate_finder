@@ -6,22 +6,18 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Amenity</dt>
-      <!-- Display amenity_id start -->
       <dd>
         <% if @amenity_preference.amenity.present? %>
           <%= link_to amenity_preference.amenity, amenity_preference.amenity %>
         <% end %>
       </dd>
-      <!-- Display amenity_id end -->
 
       <dt>Preference</dt>
-      <!-- Display preference_id start -->
       <dd>
         <% if @amenity_preference.preference.present? %>
           <%= link_to amenity_preference.preference, amenity_preference.preference %>
         <% end %>
       </dd>
-      <!-- Display preference_id end -->
 
     </dl>
 
@@ -30,21 +26,17 @@
         <%= link_to_show_or_back amenity_preference, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link amenity_preference start -->
       <div class="col">
         <%= link_to edit_amenity_preference_url(amenity_preference), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link amenity_preference end -->
 
-      <!-- Delete link amenity_preference start -->
       <div class="col">
         <%= link_to amenity_preference, method: :delete, data: { confirm: "Do you really want to delete this amenity_preference?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link amenity_preference end -->
     </div>
   </div>
 

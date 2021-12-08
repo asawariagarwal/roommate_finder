@@ -6,11 +6,9 @@
   <ul class="list-group list-group-flush">
     <% @amenity.user_preferences.each do |preference| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <a href="/preferences/<%= preference.id %>">
           <%= preference %>
         </a>
-        <!-- Show link end -->
 
       </li>
     <% end %>

@@ -1,12 +1,7 @@
 <% was_validated = preference.errors.any? %>
 
 <%= form_with(model: preference, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for user_id start -->
-  <!-- Input for "user_id" start -->
   <%= f.hidden_field :user_id, value: current_user.id %>
-  <!-- Input for "user_id" end -->
-  <!-- Label and input for user_id end -->
-  <!-- Label and input for budget_max start -->
   <div class="form-group">
     <% budget_max_class = "form-control" %>
     <% budget_max_was_invalid = preference.errors.include?(:budget_max) %>
@@ -20,9 +15,7 @@
     <% end %>
 
     <%= f.label :budget_max %>
-    <!-- Input for budget_max start -->
     <%= f.text_field :budget_max, class: budget_max_class, placeholder: "Enter budget max" %>
-    <!-- Input for budget_max end -->
     <% if budget_max_was_invalid %>
       <% preference.errors.full_messages_for(:budget_max).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -31,8 +24,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for budget_max end -->
-  <!-- Label and input for preferred_move_in start -->
   <div class="form-group">
     <% preferred_move_in_class = "form-control" %>
     <% preferred_move_in_was_invalid = preference.errors.include?(:preferred_move_in) %>
@@ -46,9 +37,7 @@
     <% end %>
 
     <%= f.label :preferred_move_in %>
-    <!-- Input for preferred_move_in start -->
     <%= f.date_select :preferred_move_in, class: preferred_move_in_class, placeholder: "Enter preferred move in" %>
-    <!-- Input for preferred_move_in end -->
     <% if preferred_move_in_was_invalid %>
       <% preference.errors.full_messages_for(:preferred_move_in).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -57,8 +46,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for preferred_move_in end -->
-  <!-- Label and input for unit_type start -->
   <div class="form-group">
     <% unit_type_class = "form-control" %>
     <% unit_type_was_invalid = preference.errors.include?(:unit_type) %>
@@ -72,9 +59,7 @@
     <% end %>
 
     <%= f.label :unit_type %>
-    <!-- Input for unit_type start -->
     <%= f.select :unit_type, options_for_select(Preference.unit_types.keys), {}, class: "form-control" %>
-    <!-- Input for unit_type end -->
     <% if unit_type_was_invalid %>
       <% preference.errors.full_messages_for(:unit_type).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -83,8 +68,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for unit_type end -->
-  <!-- Label and input for cleanliness start -->
   <div class="form-group">
     <% cleanliness_class = "form-control" %>
     <% cleanliness_was_invalid = preference.errors.include?(:cleanliness) %>
@@ -98,9 +81,7 @@
     <% end %>
 
     <%= f.label :cleanliness %>
-    <!-- Input for cleanliness start -->
     <%= f.number_field :cleanliness, class: cleanliness_class, placeholder: "Enter cleanliness" %>
-    <!-- Input for cleanliness end -->
     <% if cleanliness_was_invalid %>
       <% preference.errors.full_messages_for(:cleanliness).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -109,8 +90,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for cleanliness end -->
-  <!-- Label and input for hosting start -->
   <div class="form-group">
     <% hosting_class = "form-control" %>
     <% hosting_was_invalid = preference.errors.include?(:hosting) %>
@@ -124,9 +103,7 @@
     <% end %>
 
     <%= f.label :hosting %>
-    <!-- Input for hosting start -->
     <%= f.number_field :hosting, class: hosting_class, placeholder: "Enter hosting" %>
-    <!-- Input for hosting end -->
     <% if hosting_was_invalid %>
       <% preference.errors.full_messages_for(:hosting).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -135,8 +112,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for hosting end -->
-  <!-- Label and input for neighborhood start -->
   <div class="form-group">
     <% neighborhood_class = "form-control" %>
     <% neighborhood_was_invalid = preference.errors.include?(:neighborhood) %>
@@ -150,9 +125,7 @@
     <% end %>
 
     <%= f.label :neighborhood %>
-    <!-- Input for neighborhood start -->
     <%= f.text_field :neighborhood, class: neighborhood_class, placeholder: "Enter neighborhood" %>
-    <!-- Input for neighborhood end -->
     <% if neighborhood_was_invalid %>
       <% preference.errors.full_messages_for(:neighborhood).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -161,8 +134,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for neighborhood end -->
-  <!-- Label and input for notes start -->
   <div class="form-group">
     <% note_class = "form-control" %>
     <% note_was_invalid = preference.errors.include?(:note) %>
@@ -176,9 +147,7 @@
     <% end %>
 
     <%= f.label :notes %>
-    <!-- Input for notes start -->
     <%= f.text_area :notes, class: note_class, placeholder: "Enter note" %>
-    <!-- Input for notes end -->
     <% if note_was_invalid %>
       <% preference.errors.full_messages_for(:note).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -187,8 +156,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for notes end -->
-  <!-- Label and input for pet_friendly start -->
   <div class="form-check">
     <% pet_friendly_class = "form-check-input" %>
     <% pet_friendly_was_invalid = preference.errors.include?(:pet_friendly) %>
@@ -212,8 +179,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for pet_friendly end -->
-  <!-- Label and input for roommie_gender_preference start -->
   <div class="form-group">
     <% roommie_gender_preference_class = "form-control" %>
     <% roommie_gender_preference_was_invalid = preference.errors.include?(:roommie_gender_preference) %>
@@ -227,9 +192,7 @@
     <% end %>
 
     <%= f.label :roommie_gender_preference %>
-    <!-- Input for roommie_gender_preference start -->
     <%= f.select :roommie_gender_preference, options_for_select(Preference.roommie_gender_preferences.keys), {}, class: "form-control" %>
-    <!-- Input for roommie_gender_preference end -->
     <% if roommie_gender_preference_was_invalid %>
       <% preference.errors.full_messages_for(:roommie_gender_preference).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -238,6 +201,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for roommie_gender_preference end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

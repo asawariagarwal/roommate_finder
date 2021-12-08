@@ -6,25 +6,19 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Building</dt>
-      <!-- Display building_id start -->
       <dd>
         <% if @building_photo.building.present? %>
           <%= link_to building_photo.building, building_photo.building %>
         <% end %>
       </dd>
-      <!-- Display building_id end -->
 
       <dt>Photo</dt>
-      <!-- Display photo start -->
       <dd>
         <%= cl_image_tag @building_photo.photo, class: "img-fluid" %>
       </dd>
-      <!-- Display photo end -->
 
       <dt>Caption</dt>
-      <!-- Display caption start -->
       <dd><%= building_photo.caption %></dd>
-      <!-- Display caption end -->
 
     </dl>
 
@@ -33,21 +27,17 @@
         <%= link_to_show_or_back building_photo, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link building_photo start -->
       <div class="col">
         <%= link_to edit_building_photo_url(building_photo), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link building_photo end -->
 
-      <!-- Delete link building_photo start -->
       <div class="col">
         <%= link_to building_photo, method: :delete, data: { confirm: "Do you really want to delete this building_photo?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link building_photo end -->
     </div>
   </div>
 

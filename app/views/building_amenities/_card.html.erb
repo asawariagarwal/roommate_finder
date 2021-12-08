@@ -6,22 +6,18 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Building</dt>
-      <!-- Display building_id start -->
       <dd>
         <% if @building_amenity.building.present? %>
           <%= link_to building_amenity.building, building_amenity.building %>
         <% end %>
       </dd>
-      <!-- Display building_id end -->
 
       <dt>Amenity</dt>
-      <!-- Display amenity_id start -->
       <dd>
         <% if @building_amenity.amenity.present? %>
           <%= link_to building_amenity.amenity, building_amenity.amenity %>
         <% end %>
       </dd>
-      <!-- Display amenity_id end -->
 
     </dl>
 
@@ -30,21 +26,17 @@
         <%= link_to_show_or_back building_amenity, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link building_amenity start -->
       <div class="col">
         <%= link_to edit_building_amenity_url(building_amenity), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link building_amenity end -->
 
-      <!-- Delete link building_amenity start -->
       <div class="col">
         <%= link_to building_amenity, method: :delete, data: { confirm: "Do you really want to delete this building_amenity?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link building_amenity end -->
     </div>
   </div>
 

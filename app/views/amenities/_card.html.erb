@@ -6,14 +6,10 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Name</dt>
-      <!-- Display name start -->
       <dd><%= amenity.name %></dd>
-      <!-- Display name end -->
 
       <dt>Category</dt>
-      <!-- Display category start -->
       <dd><%= amenity.category %></dd>
-      <!-- Display category end -->
 
     </dl>
 
@@ -22,21 +18,17 @@
         <%= link_to_show_or_back amenity, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link amenity start -->
       <div class="col">
         <%= link_to edit_amenity_url(amenity), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link amenity end -->
 
-      <!-- Delete link amenity start -->
       <div class="col">
         <%= link_to amenity, method: :delete, data: { confirm: "Do you really want to delete this amenity?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link amenity end -->
     </div>
   </div>
 

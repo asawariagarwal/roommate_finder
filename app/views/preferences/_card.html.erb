@@ -6,58 +6,38 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>User</dt>
-      <!-- Display user_id start -->
       <dd>
         <% if @preference.user.present? %>
           <%= link_to preference.user, preference.user %>
         <% end %>
       </dd>
-      <!-- Display user_id end -->
 
       <dt>Budget max</dt>
-      <!-- Display budget_max start -->
       <dd><%= preference.budget_max %></dd>
-      <!-- Display budget_max end -->
 
       <dt>Preferred move in</dt>
-      <!-- Display preferred_move_in start -->
       <dd><%= preference.preferred_move_in %></dd>
-      <!-- Display preferred_move_in end -->
 
       <dt>Unit type</dt>
-      <!-- Display unit_type start -->
       <dd><%= preference.unit_type %></dd>
-      <!-- Display unit_type end -->
 
       <dt>Cleanliness</dt>
-      <!-- Display cleanliness start -->
       <dd><%= preference.cleanliness %></dd>
-      <!-- Display cleanliness end -->
 
       <dt>Hosting</dt>
-      <!-- Display hosting start -->
       <dd><%= preference.hosting %></dd>
-      <!-- Display hosting end -->
 
       <dt>Neighborhood</dt>
-      <!-- Display neighborhood start -->
       <dd><%= preference.neighborhood %></dd>
-      <!-- Display neighborhood end -->
 
       <dt>Notes</dt>
-      <!-- Display notes start -->
       <dd><%= preference.notes %></dd>
-      <!-- Display notes end -->
 
       <dt>Pet friendly</dt>
-      <!-- Display pet_friendly start -->
       <dd><%= preference.pet_friendly %></dd>
-      <!-- Display pet_friendly end -->
 
       <dt>Roommie gender preference</dt>
-      <!-- Display roommie_gender_preference start -->
       <dd><%= preference.roommie_gender_preference %></dd>
-      <!-- Display roommie_gender_preference end -->
 
     </dl>
 
@@ -66,7 +46,6 @@
         <%= link_to_show_or_back preference, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link preference start -->
       <div class="col">
         <% if current_user == @preference.user %>
           <%= link_to edit_preference_url(preference), class: "btn btn-block btn-sm btn-outline-secondary" do %>
@@ -74,9 +53,7 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Edit link preference end -->
 
-      <!-- Delete link preference start -->
       <div class="col">
         <% if current_user == @preference.user %>
           <%= link_to preference, method: :delete, data: { confirm: "Do you really want to delete this preference?" }, class: "btn btn-block btn-outline-secondary" do %>
@@ -84,7 +61,6 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Delete link preference end -->
     </div>
   </div>
 

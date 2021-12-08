@@ -6,40 +6,28 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Building</dt>
-      <!-- Display building_id start -->
       <dd>
         <% if @listing.building.present? %>
           <%= link_to listing.building, listing.building %>
         <% end %>
       </dd>
-      <!-- Display building_id end -->
 
       <dt>Unit type</dt>
-      <!-- Display unit_type start -->
       <dd><%= listing.unit_type %></dd>
-      <!-- Display unit_type end -->
 
       <dt>Lease length</dt>
-      <!-- Display lease_length start -->
       <dd><%= listing.lease_length %></dd>
-      <!-- Display lease_length end -->
 
       <dt>Price</dt>
-      <!-- Display price start -->
       <dd><%= listing.price %></dd>
-      <!-- Display price end -->
 
       <dt>Earliest move in</dt>
-      <!-- Display earliest_move_in start -->
       <dd><%= listing.earliest_move_in %></dd>
-      <!-- Display earliest_move_in end -->
 
       <dt>Floorplan</dt>
-      <!-- Display floorplan start -->
       <dd>
         <%= cl_image_tag @listing.floorplan, class: "img-fluid" %>
       </dd>
-      <!-- Display floorplan end -->
 
     </dl>
 
@@ -48,21 +36,17 @@
         <%= link_to_show_or_back listing, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link listing start -->
       <div class="col">
         <%= link_to edit_listing_url(listing), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link listing end -->
 
-      <!-- Delete link listing start -->
       <div class="col">
         <%= link_to listing, method: :delete, data: { confirm: "Do you really want to delete this listing?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link listing end -->
     </div>
   </div>
 

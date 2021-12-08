@@ -6,58 +6,38 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>User</dt>
-      <!-- Display user_id start -->
       <dd>
         <% if @profile.user.present? %>
           <%= link_to profile.user, profile.user %>
         <% end %>
       </dd>
-      <!-- Display user_id end -->
 
       <dt>First name</dt>
-      <!-- Display first_name start -->
       <dd><%= profile.first_name %></dd>
-      <!-- Display first_name end -->
 
       <dt>Last name</dt>
-      <!-- Display last_name start -->
       <dd><%= profile.last_name %></dd>
-      <!-- Display last_name end -->
 
       <dt>Gender</dt>
-      <!-- Display gender start -->
       <dd><%= profile.gender %></dd>
-      <!-- Display gender end -->
 
       <dt>Age</dt>
-      <!-- Display age start -->
       <dd><%= profile.age %></dd>
-      <!-- Display age end -->
 
       <dt>Occupation</dt>
-      <!-- Display occupation start -->
       <dd><%= profile.occupation %></dd>
-      <!-- Display occupation end -->
 
       <dt>Current city</dt>
-      <!-- Display current_city start -->
       <dd><%= profile.current_city %></dd>
-      <!-- Display current_city end -->
 
       <dt>Pet owner</dt>
-      <!-- Display pet_owner start -->
       <dd><%= profile.pet_owner %></dd>
-      <!-- Display pet_owner end -->
 
       <dt>Pet description</dt>
-      <!-- Display pet_description start -->
       <dd><%= profile.pet_description %></dd>
-      <!-- Display pet_description end -->
 
       <dt>About me</dt>
-      <!-- Display about_me start -->
       <dd><%= profile.about_me %></dd>
-      <!-- Display about_me end -->
 
     </dl>
 
@@ -66,7 +46,6 @@
         <%= link_to_show_or_back profile, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link profile start -->
       <div class="col">
         <% if current_user == @profile.user %>
           <%= link_to edit_profile_url(profile), class: "btn btn-block btn-sm btn-outline-secondary" do %>
@@ -74,9 +53,7 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Edit link profile end -->
 
-      <!-- Delete link profile start -->
       <div class="col">
         <% if current_user == @profile.user %>
           <%= link_to profile, method: :delete, data: { confirm: "Do you really want to delete this profile?" }, class: "btn btn-block btn-outline-secondary" do %>
@@ -84,7 +61,6 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Delete link profile end -->
     </div>
   </div>
 

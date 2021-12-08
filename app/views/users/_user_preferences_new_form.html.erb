@@ -1,100 +1,58 @@
-<!-- Form preference start -->
 <%= form_with(model: @preference, local: true) do |f| %>
-<!-- Form preference end -->
 
-  <!-- Label and input for user_id start -->
-  <!-- Input for user_id start -->
   <%= f.hidden_field :user_id, value: @user.id %>
-  <!-- Input for user_id end -->
-  <!-- Label and input for user_id end -->
 
-  <!-- Label and input for budget_max start -->
   <div class="form-group">
     <%= f.label :budget_max %>
 
-    <!-- Input for budget_max start -->
     <%= f.text_field :budget_max, class: "form-control" %>
-    <!-- Input for budget_max end -->
   </div>
-  <!-- Label and input for budget_max end -->
 
-  <!-- Label and input for preferred_move_in start -->
   <div class="form-group">
     <%= f.label :preferred_move_in %>
 
-    <!-- Input for preferred_move_in start -->
     <%= f.date_select :preferred_move_in, class: "form-control" %>
-    <!-- Input for preferred_move_in end -->
   </div>
-  <!-- Label and input for preferred_move_in end -->
 
-  <!-- Label and input for unit_type start -->
   <div class="form-group">
     <%= f.label :unit_type %>
 
-    <!-- Input for unit_type start -->
     <%= f.select :unit_type, options_for_select(Preference.unit_types.keys), {}, class: "form-control" %>
-    <!-- Input for unit_type end -->
   </div>
-  <!-- Label and input for unit_type end -->
 
-  <!-- Label and input for cleanliness start -->
   <div class="form-group">
     <%= f.label :cleanliness %>
 
-    <!-- Input for cleanliness start -->
     <%= f.text_field :cleanliness, class: "form-control" %>
-    <!-- Input for cleanliness end -->
   </div>
-  <!-- Label and input for cleanliness end -->
 
-  <!-- Label and input for hosting start -->
   <div class="form-group">
     <%= f.label :hosting %>
 
-    <!-- Input for hosting start -->
     <%= f.text_field :hosting, class: "form-control" %>
-    <!-- Input for hosting end -->
   </div>
-  <!-- Label and input for hosting end -->
 
-  <!-- Label and input for neighborhood start -->
   <div class="form-group">
     <%= f.label :neighborhood %>
 
-    <!-- Input for neighborhood start -->
     <%= f.text_field :neighborhood, class: "form-control" %>
-    <!-- Input for neighborhood end -->
   </div>
-  <!-- Label and input for neighborhood end -->
 
-  <!-- Label and input for notes start -->
   <div class="form-group">
     <%= f.label :notes %>
-    <!-- Input for notes start -->
     <%= f.text_area :notes, rows: "3", class: "form-control" %>
-    <!-- Input for notes end -->
   </div>
-  <!-- Label and input for notes end -->
 
-  <!-- Label and input for pet_friendly start -->
   <div class="form-check">
-    <!-- Input for pet_friendly start -->
     <%= f.check_box :pet_friendly, class: "form-check-input" %>
-    <!-- Input for pet_friendly end -->
     <%= f.label :pet_friendly, class: "form-check-label" %>
   </div>
-  <!-- Label and input for pet_friendly end -->
 
-  <!-- Label and input for roommie_gender_preference start -->
   <div class="form-group">
     <%= f.label :roommie_gender_preference %>
 
-    <!-- Input for roommie_gender_preference start -->
     <%= f.select :roommie_gender_preference, options_for_select(Preference.roommie_gender_preferences.keys), {}, class: "form-control" %>
-    <!-- Input for roommie_gender_preference end -->
   </div>
-  <!-- Label and input for roommie_gender_preference end -->
 
   <%= f.submit "Create preference", class: "btn btn-block btn-outline-secondary" %>
 <% end %>
