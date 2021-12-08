@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :favorites
   resources :building_photos
   resources :listing_photos
   resources :listings
