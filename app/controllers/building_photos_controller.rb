@@ -1,24 +1,19 @@
 class BuildingPhotosController < ApplicationController
   before_action :set_building_photo, only: %i[show edit update destroy]
 
-  # GET /building_photos
   def index
     @q = BuildingPhoto.ransack(params[:q])
     @building_photos = @q.result(distinct: true).includes(:building).page(params[:page]).per(10)
   end
 
-  # GET /building_photos/1
   def show; end
 
-  # GET /building_photos/new
   def new
     @building_photo = BuildingPhoto.new
   end
 
-  # GET /building_photos/1/edit
   def edit; end
 
-  # POST /building_photos
   def create
     @building_photo = BuildingPhoto.new(building_photo_params)
 
@@ -34,7 +29,6 @@ class BuildingPhotosController < ApplicationController
     end
   end
 
-  # PATCH/PUT /building_photos/1
   def update
     if @building_photo.update(building_photo_params)
       redirect_to @building_photo,
@@ -44,7 +38,6 @@ class BuildingPhotosController < ApplicationController
     end
   end
 
-  # DELETE /building_photos/1
   def destroy
     @building_photo.destroy
     message = "BuildingPhoto was successfully deleted."
@@ -57,12 +50,10 @@ class BuildingPhotosController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_building_photo
     @building_photo = BuildingPhoto.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def building_photo_params
     params.require(:building_photo).permit(:building_id, :photo, :caption)
   end
