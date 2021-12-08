@@ -13,6 +13,8 @@ class AmenityResource < ApplicationResource
 
   # Indirect associations
 
+  many_to_many :buildings
+
   many_to_many :user_preferences,
                resource: PreferenceResource
 
