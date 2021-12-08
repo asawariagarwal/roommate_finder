@@ -1,0 +1,135 @@
+<% was_validated = building.errors.any? %>
+
+<%= form_with(model: building, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for name start -->
+  <div class="form-group">
+    <% name_class = "form-control" %>
+    <% name_was_invalid = building.errors.include?(:name) %>
+
+    <% if was_validated %>
+      <% if name_was_invalid %>
+        <% name_class << " is-invalid" %>
+      <% else %>
+        <% name_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :name %>
+    <!-- Input for name start -->
+    <%= f.text_field :name, class: name_class, placeholder: "Enter name" %>
+    <!-- Input for name end -->
+    <% if name_was_invalid %>
+      <% building.errors.full_messages_for(:name).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for name end -->
+  <!-- Label and input for location start -->
+  <div class="form-group">
+    <% location_class = "form-control" %>
+    <% location_was_invalid = building.errors.include?(:location) %>
+
+    <% if was_validated %>
+      <% if location_was_invalid %>
+        <% location_class << " is-invalid" %>
+      <% else %>
+        <% location_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :location %>
+    <!-- Input for location start -->
+    <%= f.text_field :location, class: location_class, placeholder: "Enter location" %>
+    <!-- Input for location end -->
+    <% if location_was_invalid %>
+      <% building.errors.full_messages_for(:location).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for location end -->
+  <!-- Label and input for building_type start -->
+  <div class="form-group">
+    <% building_type_class = "form-control" %>
+    <% building_type_was_invalid = building.errors.include?(:building_type) %>
+
+    <% if was_validated %>
+      <% if building_type_was_invalid %>
+        <% building_type_class << " is-invalid" %>
+      <% else %>
+        <% building_type_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :building_type %>
+    <!-- Input for building_type start -->
+    <%= f.number_field :building_type, class: building_type_class, placeholder: "Enter building type" %>
+    <!-- Input for building_type end -->
+    <% if building_type_was_invalid %>
+      <% building.errors.full_messages_for(:building_type).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for building_type end -->
+  <!-- Label and input for average_user_rating start -->
+  <div class="form-group">
+    <% average_user_rating_class = "form-control" %>
+    <% average_user_rating_was_invalid = building.errors.include?(:average_user_rating) %>
+
+    <% if was_validated %>
+      <% if average_user_rating_was_invalid %>
+        <% average_user_rating_class << " is-invalid" %>
+      <% else %>
+        <% average_user_rating_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :average_user_rating %>
+    <!-- Input for average_user_rating start -->
+    <%= f.text_field :average_user_rating, class: average_user_rating_class, placeholder: "Enter average user rating" %>
+    <!-- Input for average_user_rating end -->
+    <% if average_user_rating_was_invalid %>
+      <% building.errors.full_messages_for(:average_user_rating).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for average_user_rating end -->
+  <!-- Label and input for neighborhood start -->
+  <div class="form-group">
+    <% neighborhood_class = "form-control" %>
+    <% neighborhood_was_invalid = building.errors.include?(:neighborhood) %>
+
+    <% if was_validated %>
+      <% if neighborhood_was_invalid %>
+        <% neighborhood_class << " is-invalid" %>
+      <% else %>
+        <% neighborhood_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :neighborhood %>
+    <!-- Input for neighborhood start -->
+    <%= f.text_field :neighborhood, class: neighborhood_class, placeholder: "Enter neighborhood" %>
+    <!-- Input for neighborhood end -->
+    <% if neighborhood_was_invalid %>
+      <% building.errors.full_messages_for(:neighborhood).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for neighborhood end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
