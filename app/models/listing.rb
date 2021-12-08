@@ -3,6 +3,9 @@ class Listing < ApplicationRecord
 
   # Direct associations
 
+  has_many   :messages,
+             :dependent => :destroy
+
   has_many   :listing_photos,
              :dependent => :destroy
 
