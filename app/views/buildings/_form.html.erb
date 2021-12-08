@@ -68,7 +68,7 @@
 
     <%= f.label :building_type %>
     <!-- Input for building_type start -->
-    <%= f.number_field :building_type, class: building_type_class, placeholder: "Enter building type" %>
+    <%= f.select :building_type, options_for_select(Building.building_types.keys), {}, class: "form-control" %>
     <!-- Input for building_type end -->
     <% if building_type_was_invalid %>
       <% building.errors.full_messages_for(:building_type).each do |message| %>
