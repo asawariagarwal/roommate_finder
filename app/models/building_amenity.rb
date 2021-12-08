@@ -14,5 +14,4 @@ class BuildingAmenity < ApplicationRecord
   def to_s
     building.to_s
   end
-
 end

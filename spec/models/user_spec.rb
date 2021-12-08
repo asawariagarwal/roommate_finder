@@ -1,9 +1,7 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe User, type: :model do
-  
-    describe "Direct Associations" do
-
+  describe "Direct Associations" do
     it { should have_many(:received_messages) }
 
     it { should have_many(:sent_messages) }
@@ -13,14 +11,11 @@ RSpec.describe User, type: :model do
     it { should have_many(:favorites) }
 
     it { should have_many(:preferences) }
+  end
 
-    end
+  describe "InDirect Associations" do
+  end
 
-    describe "InDirect Associations" do
-
-    end
-
-    describe "Validations" do
-
-    end
+  describe "Validations" do
+  end
 end

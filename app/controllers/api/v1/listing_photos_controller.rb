@@ -13,7 +13,7 @@ class Api::V1::ListingPhotosController < Api::V1::GraphitiController
     listing_photo = ListingPhotoResource.build(params)
 
     if listing_photo.save
-      render jsonapi: listing_photo, status: 201
+      render jsonapi: listing_photo, status: :created
     else
       render jsonapi_errors: listing_photo
     end
@@ -33,7 +33,7 @@ class Api::V1::ListingPhotosController < Api::V1::GraphitiController
     listing_photo = ListingPhotoResource.find(params)
 
     if listing_photo.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: listing_photo
     end

@@ -11,5 +11,4 @@ class ListingPhotoResource < ApplicationResource
   belongs_to :listing
 
   # Indirect associations
-
 end

@@ -11,7 +11,8 @@ class PreferenceResource < ApplicationResource
   attribute :neighborhood, :string
   attribute :notes, :string
   attribute :pet_friendly, :boolean
-  attribute :roommie_gender_preference, :string_enum, allow: Preference.roommie_gender_preferences.keys
+  attribute :roommie_gender_preference, :string_enum,
+            allow: Preference.roommie_gender_preferences.keys
 
   # Direct associations
 
@@ -22,5 +23,4 @@ class PreferenceResource < ApplicationResource
   # Indirect associations
 
   many_to_many :amenities
-
 end

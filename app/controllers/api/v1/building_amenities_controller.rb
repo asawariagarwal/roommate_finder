@@ -13,7 +13,7 @@ class Api::V1::BuildingAmenitiesController < Api::V1::GraphitiController
     building_amenity = BuildingAmenityResource.build(params)
 
     if building_amenity.save
-      render jsonapi: building_amenity, status: 201
+      render jsonapi: building_amenity, status: :created
     else
       render jsonapi_errors: building_amenity
     end
@@ -33,7 +33,7 @@ class Api::V1::BuildingAmenitiesController < Api::V1::GraphitiController
     building_amenity = BuildingAmenityResource.find(params)
 
     if building_amenity.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: building_amenity
     end

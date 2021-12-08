@@ -1,10 +1,11 @@
 class ListingsController < ApplicationController
-  before_action :set_listing, only: [:show, :edit, :update, :destroy]
+  before_action :set_listing, only: %i[show edit update destroy]
 
   # GET /listings
   def index
     @q = Listing.ransack(params[:q])
-    @listings = @q.result(:distinct => true).includes(:building, :favorites, :listing_photos, :messages).page(params[:page]).per(10)
+    @listings = @q.result(distinct: true).includes(:building, :favorites,
+                                                   :listing_photos, :messages).page(params[:page]).per(10)
   end
 
   # GET /listings/1
@@ -20,17 +21,16 @@ class ListingsController < ApplicationController
   end
 
   # GET /listings/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /listings
   def create
     @listing = Listing.new(listing_params)
 
     if @listing.save
-      message = 'Listing was successfully created.'
-      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-        redirect_back fallback_location: request.referrer, notice: message
+      message = "Listing was successfully created."
+      if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referer, notice: message
       else
         redirect_to @listing, notice: message
       end
@@ -42,7 +42,7 @@ class ListingsController < ApplicationController
   # PATCH/PUT /listings/1
   def update
     if @listing.update(listing_params)
-      redirect_to @listing, notice: 'Listing was successfully updated.'
+      redirect_to @listing, notice: "Listing was successfully updated."
     else
       render :edit
     end
@@ -52,22 +52,23 @@ class ListingsController < ApplicationController
   def destroy
     @listing.destroy
     message = "Listing was successfully deleted."
-    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-      redirect_back fallback_location: request.referrer, notice: message
+    if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referer, notice: message
     else
       redirect_to listings_url, notice: message
     end
   end
 
-
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_listing
-      @listing = Listing.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def listing_params
-      params.require(:listing).permit(:building_id, :unit_type, :lease_length, :price, :earliest_move_in, :floorplan)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_listing
+    @listing = Listing.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def listing_params
+    params.require(:listing).permit(:building_id, :unit_type, :lease_length,
+                                    :price, :earliest_move_in, :floorplan)
+  end
 end

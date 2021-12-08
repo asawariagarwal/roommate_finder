@@ -1,10 +1,11 @@
 class AmenitiesController < ApplicationController
-  before_action :set_amenity, only: [:show, :edit, :update, :destroy]
+  before_action :set_amenity, only: %i[show edit update destroy]
 
   # GET /amenities
   def index
     @q = Amenity.ransack(params[:q])
-    @amenities = @q.result(:distinct => true).includes(:building_amenities, :amenity_preferences, :user_preferences, :buildings).page(params[:page]).per(10)
+    @amenities = @q.result(distinct: true).includes(:building_amenities,
+                                                    :amenity_preferences, :user_preferences, :buildings).page(params[:page]).per(10)
   end
 
   # GET /amenities/1
@@ -19,15 +20,14 @@ class AmenitiesController < ApplicationController
   end
 
   # GET /amenities/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /amenities
   def create
     @amenity = Amenity.new(amenity_params)
 
     if @amenity.save
-      redirect_to @amenity, notice: 'Amenity was successfully created.'
+      redirect_to @amenity, notice: "Amenity was successfully created."
     else
       render :new
     end
@@ -36,7 +36,7 @@ class AmenitiesController < ApplicationController
   # PATCH/PUT /amenities/1
   def update
     if @amenity.update(amenity_params)
-      redirect_to @amenity, notice: 'Amenity was successfully updated.'
+      redirect_to @amenity, notice: "Amenity was successfully updated."
     else
       render :edit
     end
@@ -45,17 +45,18 @@ class AmenitiesController < ApplicationController
   # DELETE /amenities/1
   def destroy
     @amenity.destroy
-    redirect_to amenities_url, notice: 'Amenity was successfully destroyed.'
+    redirect_to amenities_url, notice: "Amenity was successfully destroyed."
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_amenity
-      @amenity = Amenity.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def amenity_params
-      params.require(:amenity).permit(:name, :category)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_amenity
+    @amenity = Amenity.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def amenity_params
+    params.require(:amenity).permit(:name, :category)
+  end
 end

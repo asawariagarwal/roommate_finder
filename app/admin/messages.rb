@@ -1,6 +1,5 @@
 ActiveAdmin.register Message do
-
- permit_params :sender_user_id, :receiver_user_id, :listing_id, :body
+  permit_params :sender_user_id, :receiver_user_id, :listing_id, :body
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
@@ -14,5 +13,4 @@ ActiveAdmin.register Message do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
 end

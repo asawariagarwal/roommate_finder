@@ -19,5 +19,4 @@ class BuildingResource < ApplicationResource
   # Indirect associations
 
   many_to_many :amenities
-
 end

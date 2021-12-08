@@ -11,5 +11,4 @@ class BuildingPhotoResource < ApplicationResource
   belongs_to :building
 
   # Indirect associations
-
 end

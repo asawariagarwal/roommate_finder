@@ -1,6 +1,6 @@
 ActiveAdmin.register Profile do
-
- permit_params :user_id, :first_name, :last_name, :gender, :age, :occupation, :current_city, :pet_owner, :pet_description, :about_me
+  permit_params :user_id, :first_name, :last_name, :gender, :age, :occupation,
+                :current_city, :pet_owner, :pet_description, :about_me
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
@@ -14,5 +14,4 @@ ActiveAdmin.register Profile do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
 end

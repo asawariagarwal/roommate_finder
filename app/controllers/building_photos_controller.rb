@@ -1,15 +1,14 @@
 class BuildingPhotosController < ApplicationController
-  before_action :set_building_photo, only: [:show, :edit, :update, :destroy]
+  before_action :set_building_photo, only: %i[show edit update destroy]
 
   # GET /building_photos
   def index
     @q = BuildingPhoto.ransack(params[:q])
-    @building_photos = @q.result(:distinct => true).includes(:building).page(params[:page]).per(10)
+    @building_photos = @q.result(distinct: true).includes(:building).page(params[:page]).per(10)
   end
 
   # GET /building_photos/1
-  def show
-  end
+  def show; end
 
   # GET /building_photos/new
   def new
@@ -17,17 +16,16 @@ class BuildingPhotosController < ApplicationController
   end
 
   # GET /building_photos/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /building_photos
   def create
     @building_photo = BuildingPhoto.new(building_photo_params)
 
     if @building_photo.save
-      message = 'BuildingPhoto was successfully created.'
-      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-        redirect_back fallback_location: request.referrer, notice: message
+      message = "BuildingPhoto was successfully created."
+      if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referer, notice: message
       else
         redirect_to @building_photo, notice: message
       end
@@ -39,7 +37,8 @@ class BuildingPhotosController < ApplicationController
   # PATCH/PUT /building_photos/1
   def update
     if @building_photo.update(building_photo_params)
-      redirect_to @building_photo, notice: 'Building photo was successfully updated.'
+      redirect_to @building_photo,
+                  notice: "Building photo was successfully updated."
     else
       render :edit
     end
@@ -49,22 +48,22 @@ class BuildingPhotosController < ApplicationController
   def destroy
     @building_photo.destroy
     message = "BuildingPhoto was successfully deleted."
-    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-      redirect_back fallback_location: request.referrer, notice: message
+    if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referer, notice: message
     else
       redirect_to building_photos_url, notice: message
     end
   end
 
-
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_building_photo
-      @building_photo = BuildingPhoto.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def building_photo_params
-      params.require(:building_photo).permit(:building_id, :photo, :caption)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_building_photo
+    @building_photo = BuildingPhoto.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def building_photo_params
+    params.require(:building_photo).permit(:building_id, :photo, :caption)
+  end
 end

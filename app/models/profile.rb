@@ -1,5 +1,5 @@
 class Profile < ApplicationRecord
-  enum gender: {"male"=>0, "female"=>1, "other"=>2} 
+  enum gender: { "male" => 0, "female" => 1, "other" => 2 }
 
   # Direct associations
 
@@ -14,5 +14,4 @@ class Profile < ApplicationRecord
   def to_s
     user.to_s
   end
-
 end

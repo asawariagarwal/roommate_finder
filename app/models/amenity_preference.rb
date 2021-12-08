@@ -14,5 +14,4 @@ class AmenityPreference < ApplicationRecord
   def to_s
     amenity.to_s
   end
-
 end

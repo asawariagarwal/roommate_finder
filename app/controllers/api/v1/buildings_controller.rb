@@ -13,7 +13,7 @@ class Api::V1::BuildingsController < Api::V1::GraphitiController
     building = BuildingResource.build(params)
 
     if building.save
-      render jsonapi: building, status: 201
+      render jsonapi: building, status: :created
     else
       render jsonapi_errors: building
     end
@@ -33,7 +33,7 @@ class Api::V1::BuildingsController < Api::V1::GraphitiController
     building = BuildingResource.find(params)
 
     if building.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: building
     end

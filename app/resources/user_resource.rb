@@ -23,5 +23,4 @@ class UserResource < ApplicationResource
   has_many   :preferences
 
   # Indirect associations
-
 end

@@ -14,5 +14,4 @@ class ListingPhoto < ApplicationRecord
   def to_s
     listing.to_s
   end
-
 end

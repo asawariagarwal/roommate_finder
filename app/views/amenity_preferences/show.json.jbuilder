@@ -1,1 +1,2 @@
-json.partial! "amenity_preferences/amenity_preference", amenity_preference: @amenity_preference
+json.partial! "amenity_preferences/amenity_preference",
+              amenity_preference: @amenity_preference

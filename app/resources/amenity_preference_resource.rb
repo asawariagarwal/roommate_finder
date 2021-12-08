@@ -12,5 +12,4 @@ class AmenityPreferenceResource < ApplicationResource
   belongs_to :preference
 
   # Indirect associations
-
 end

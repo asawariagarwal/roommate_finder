@@ -17,5 +17,4 @@ class AmenityResource < ApplicationResource
 
   many_to_many :user_preferences,
                resource: PreferenceResource
-
 end

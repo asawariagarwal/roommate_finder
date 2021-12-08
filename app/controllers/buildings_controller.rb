@@ -1,10 +1,11 @@
 class BuildingsController < ApplicationController
-  before_action :set_building, only: [:show, :edit, :update, :destroy]
+  before_action :set_building, only: %i[show edit update destroy]
 
   # GET /buildings
   def index
     @q = Building.ransack(params[:q])
-    @buildings = @q.result(:distinct => true).includes(:building_photos, :building_amenities, :listings, :amenities).page(params[:page]).per(10)
+    @buildings = @q.result(distinct: true).includes(:building_photos,
+                                                    :building_amenities, :listings, :amenities).page(params[:page]).per(10)
   end
 
   # GET /buildings/1
@@ -20,15 +21,14 @@ class BuildingsController < ApplicationController
   end
 
   # GET /buildings/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /buildings
   def create
     @building = Building.new(building_params)
 
     if @building.save
-      redirect_to @building, notice: 'Building was successfully created.'
+      redirect_to @building, notice: "Building was successfully created."
     else
       render :new
     end
@@ -37,7 +37,7 @@ class BuildingsController < ApplicationController
   # PATCH/PUT /buildings/1
   def update
     if @building.update(building_params)
-      redirect_to @building, notice: 'Building was successfully updated.'
+      redirect_to @building, notice: "Building was successfully updated."
     else
       render :edit
     end
@@ -46,17 +46,19 @@ class BuildingsController < ApplicationController
   # DELETE /buildings/1
   def destroy
     @building.destroy
-    redirect_to buildings_url, notice: 'Building was successfully destroyed.'
+    redirect_to buildings_url, notice: "Building was successfully destroyed."
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_building
-      @building = Building.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def building_params
-      params.require(:building).permit(:name, :location, :building_type, :average_user_rating, :neighborhood)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_building
+    @building = Building.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def building_params
+    params.require(:building).permit(:name, :location, :building_type,
+                                     :average_user_rating, :neighborhood)
+  end
 end

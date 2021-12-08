@@ -12,5 +12,4 @@ class FavoriteResource < ApplicationResource
   belongs_to :listing
 
   # Indirect associations
-
 end

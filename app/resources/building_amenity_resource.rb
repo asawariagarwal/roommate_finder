@@ -12,5 +12,4 @@ class BuildingAmenityResource < ApplicationResource
   belongs_to :building
 
   # Indirect associations
-
 end

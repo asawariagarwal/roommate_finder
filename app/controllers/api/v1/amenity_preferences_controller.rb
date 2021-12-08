@@ -13,7 +13,7 @@ class Api::V1::AmenityPreferencesController < Api::V1::GraphitiController
     amenity_preference = AmenityPreferenceResource.build(params)
 
     if amenity_preference.save
-      render jsonapi: amenity_preference, status: 201
+      render jsonapi: amenity_preference, status: :created
     else
       render jsonapi_errors: amenity_preference
     end
@@ -33,7 +33,7 @@ class Api::V1::AmenityPreferencesController < Api::V1::GraphitiController
     amenity_preference = AmenityPreferenceResource.find(params)
 
     if amenity_preference.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: amenity_preference
     end

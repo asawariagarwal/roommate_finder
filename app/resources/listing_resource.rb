@@ -20,5 +20,4 @@ class ListingResource < ApplicationResource
   belongs_to :building
 
   # Indirect associations
-
 end

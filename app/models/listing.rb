@@ -1,18 +1,18 @@
 class Listing < ApplicationRecord
   mount_uploader :floorplan, FloorplanUploader
 
-  enum unit_type: {"b2b_3b3b_1b"=>0} 
+  enum unit_type: { "b2b_3b3b_1b" => 0 }
 
   # Direct associations
 
   has_many   :messages,
-             :dependent => :destroy
+             dependent: :destroy
 
   has_many   :listing_photos,
-             :dependent => :destroy
+             dependent: :destroy
 
   has_many   :favorites,
-             :dependent => :destroy
+             dependent: :destroy
 
   belongs_to :building
 
@@ -25,5 +25,4 @@ class Listing < ApplicationRecord
   def to_s
     building.to_s
   end
-
 end
