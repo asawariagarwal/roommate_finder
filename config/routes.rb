@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :listings
   resources :amenities
   resources :buildings
   resources :preferences

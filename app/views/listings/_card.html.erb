@@ -1,0 +1,66 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Listing #<%= listing.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Building</dt>
+      <!-- Display building_id start -->
+      <dd><%= listing.building_id %></dd>
+      <!-- Display building_id end -->
+
+      <dt>Unit type</dt>
+      <!-- Display unit_type start -->
+      <dd><%= listing.unit_type %></dd>
+      <!-- Display unit_type end -->
+
+      <dt>Lease length</dt>
+      <!-- Display lease_length start -->
+      <dd><%= listing.lease_length %></dd>
+      <!-- Display lease_length end -->
+
+      <dt>Price</dt>
+      <!-- Display price start -->
+      <dd><%= listing.price %></dd>
+      <!-- Display price end -->
+
+      <dt>Earliest move in</dt>
+      <!-- Display earliest_move_in start -->
+      <dd><%= listing.earliest_move_in %></dd>
+      <!-- Display earliest_move_in end -->
+
+      <dt>Floorplan</dt>
+      <!-- Display floorplan start -->
+      <dd><%= listing.floorplan %></dd>
+      <!-- Display floorplan end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back listing, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link listing start -->
+      <div class="col">
+        <%= link_to edit_listing_url(listing), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link listing end -->
+
+      <!-- Delete link listing start -->
+      <div class="col">
+        <%= link_to listing, method: :delete, data: { confirm: "Do you really want to delete this listing?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link listing end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(listing.updated_at) %> ago
+  </div>
+</div>

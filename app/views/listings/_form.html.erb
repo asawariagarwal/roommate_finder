@@ -1,0 +1,161 @@
+<% was_validated = listing.errors.any? %>
+
+<%= form_with(model: listing, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for building_id start -->
+  <div class="form-group">
+    <% building_class = "form-control" %>
+    <% building_was_invalid = listing.errors.include?(:building) %>
+
+    <% if was_validated %>
+      <% if building_was_invalid %>
+        <% building_class << " is-invalid" %>
+      <% else %>
+        <% building_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :building_id %>
+    <!-- Input for building_id start -->
+    <%= f.number_field :building_id, class: building_class, placeholder: "Enter building" %>
+    <!-- Input for building_id end -->
+    <% if building_was_invalid %>
+      <% listing.errors.full_messages_for(:building).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for building_id end -->
+  <!-- Label and input for unit_type start -->
+  <div class="form-group">
+    <% unit_type_class = "form-control" %>
+    <% unit_type_was_invalid = listing.errors.include?(:unit_type) %>
+
+    <% if was_validated %>
+      <% if unit_type_was_invalid %>
+        <% unit_type_class << " is-invalid" %>
+      <% else %>
+        <% unit_type_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :unit_type %>
+    <!-- Input for unit_type start -->
+    <%= f.number_field :unit_type, class: unit_type_class, placeholder: "Enter unit type" %>
+    <!-- Input for unit_type end -->
+    <% if unit_type_was_invalid %>
+      <% listing.errors.full_messages_for(:unit_type).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for unit_type end -->
+  <!-- Label and input for lease_length start -->
+  <div class="form-group">
+    <% lease_length_class = "form-control" %>
+    <% lease_length_was_invalid = listing.errors.include?(:lease_length) %>
+
+    <% if was_validated %>
+      <% if lease_length_was_invalid %>
+        <% lease_length_class << " is-invalid" %>
+      <% else %>
+        <% lease_length_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :lease_length %>
+    <!-- Input for lease_length start -->
+    <%= f.number_field :lease_length, class: lease_length_class, placeholder: "Enter lease length" %>
+    <!-- Input for lease_length end -->
+    <% if lease_length_was_invalid %>
+      <% listing.errors.full_messages_for(:lease_length).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for lease_length end -->
+  <!-- Label and input for price start -->
+  <div class="form-group">
+    <% price_class = "form-control" %>
+    <% price_was_invalid = listing.errors.include?(:price) %>
+
+    <% if was_validated %>
+      <% if price_was_invalid %>
+        <% price_class << " is-invalid" %>
+      <% else %>
+        <% price_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :price %>
+    <!-- Input for price start -->
+    <%= f.text_field :price, class: price_class, placeholder: "Enter price" %>
+    <!-- Input for price end -->
+    <% if price_was_invalid %>
+      <% listing.errors.full_messages_for(:price).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for price end -->
+  <!-- Label and input for earliest_move_in start -->
+  <div class="form-group">
+    <% earliest_move_in_class = "form-control" %>
+    <% earliest_move_in_was_invalid = listing.errors.include?(:earliest_move_in) %>
+
+    <% if was_validated %>
+      <% if earliest_move_in_was_invalid %>
+        <% earliest_move_in_class << " is-invalid" %>
+      <% else %>
+        <% earliest_move_in_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :earliest_move_in %>
+    <!-- Input for earliest_move_in start -->
+    <%= f.date_select :earliest_move_in, class: earliest_move_in_class, placeholder: "Enter earliest move in" %>
+    <!-- Input for earliest_move_in end -->
+    <% if earliest_move_in_was_invalid %>
+      <% listing.errors.full_messages_for(:earliest_move_in).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for earliest_move_in end -->
+  <!-- Label and input for floorplan start -->
+  <div class="form-group">
+    <% floorplan_class = "form-control" %>
+    <% floorplan_was_invalid = listing.errors.include?(:floorplan) %>
+
+    <% if was_validated %>
+      <% if floorplan_was_invalid %>
+        <% floorplan_class << " is-invalid" %>
+      <% else %>
+        <% floorplan_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :floorplan %>
+    <!-- Input for floorplan start -->
+    <%= f.text_field :floorplan, class: floorplan_class, placeholder: "Enter floorplan" %>
+    <!-- Input for floorplan end -->
+    <% if floorplan_was_invalid %>
+      <% listing.errors.full_messages_for(:floorplan).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for floorplan end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
