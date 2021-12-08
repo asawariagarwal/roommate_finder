@@ -42,7 +42,7 @@
 
     <%= f.label :preference_id %>
     <!-- Input for preference_id start -->
-    <%= f.number_field :preference_id, class: preference_class, placeholder: "Enter preference" %>
+    <%= f.collection_select :preference_id, Preference.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for preference_id end -->
     <% if preference_was_invalid %>
       <% amenity_preference.errors.full_messages_for(:preference).each do |message| %>
