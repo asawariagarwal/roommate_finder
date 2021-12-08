@@ -5,6 +5,8 @@ class Preference < ApplicationRecord
 
   # Direct associations
 
+  belongs_to :user
+
   has_many   :amenity_preferences,
              :dependent => :destroy
 

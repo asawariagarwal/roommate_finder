@@ -4,6 +4,8 @@ RSpec.describe Preference, type: :model do
   
     describe "Direct Associations" do
 
+    it { should belong_to(:user) }
+
     it { should have_many(:amenity_preferences) }
 
     end
