@@ -94,7 +94,7 @@
 
     <%= f.label :unit_type %>
     <!-- Input for unit_type start -->
-    <%= f.number_field :unit_type, class: unit_type_class, placeholder: "Enter unit type" %>
+    <%= f.select :unit_type, options_for_select(Preference.unit_types.keys), {}, class: "form-control" %>
     <!-- Input for unit_type end -->
     <% if unit_type_was_invalid %>
       <% preference.errors.full_messages_for(:unit_type).each do |message| %>

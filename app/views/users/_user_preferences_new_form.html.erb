@@ -33,7 +33,7 @@
     <%= f.label :unit_type %>
 
     <!-- Input for unit_type start -->
-    <%= f.text_field :unit_type, class: "form-control" %>
+    <%= f.select :unit_type, options_for_select(Preference.unit_types.keys), {}, class: "form-control" %>
     <!-- Input for unit_type end -->
   </div>
   <!-- Label and input for unit_type end -->
