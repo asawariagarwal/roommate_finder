@@ -1,4 +1,6 @@
 class ProfilesController < ApplicationController
+  before_action :current_user_must_be_profile_user, only: [:edit, :update, :destroy] 
+
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
 
   # GET /profiles
@@ -57,6 +59,14 @@ class ProfilesController < ApplicationController
 
 
   private
+
+  def current_user_must_be_profile_user
+    set_profile
+    unless current_user == @profile.user
+      redirect_back fallback_location: root_path, alert: "You are not authorized for that."
+    end
+  end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_profile
       @profile = Profile.find(params[:id])
