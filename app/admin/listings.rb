@@ -1,5 +1,7 @@
 ActiveAdmin.register Listing do
 
+ permit_params :building_id, :unit_type, :lease_length, :price, :earliest_move_in, :floorplan
+
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
