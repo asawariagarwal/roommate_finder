@@ -1,0 +1,19 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Amenities
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @preference.amenities.each do |amenity| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <!-- Show link start -->
+        <a href="/amenities/<%= amenity.id %>">
+          <%= amenity %>
+        </a>
+        <!-- Show link end -->
+
+      </li>
+    <% end %>
+
+  </ul>
+</div>

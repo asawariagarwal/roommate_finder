@@ -42,8 +42,14 @@ class AmenityPreferencesController < ApplicationController
   # DELETE /amenity_preferences/1
   def destroy
     @amenity_preference.destroy
-    redirect_to amenity_preferences_url, notice: 'Amenity preference was successfully destroyed.'
+    message = "AmenityPreference was successfully deleted."
+    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referrer, notice: message
+    else
+      redirect_to amenity_preferences_url, notice: message
+    end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

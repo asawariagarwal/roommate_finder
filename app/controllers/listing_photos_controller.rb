@@ -42,8 +42,14 @@ class ListingPhotosController < ApplicationController
   # DELETE /listing_photos/1
   def destroy
     @listing_photo.destroy
-    redirect_to listing_photos_url, notice: 'Listing photo was successfully destroyed.'
+    message = "ListingPhoto was successfully deleted."
+    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referrer, notice: message
+    else
+      redirect_to listing_photos_url, notice: message
+    end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

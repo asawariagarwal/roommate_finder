@@ -1,0 +1,35 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Amenity Preferences
+
+    <a data-toggle="collapse" href="#amenity_amenity_preferences_new_form">
+      Add amenity preference
+    </a>
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @amenity.amenity_preferences.each do |amenity_preference| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <!-- Show link start -->
+        <%= link_to amenity_preference, amenity_preference %>
+        <!-- Show link end -->
+
+        <!-- Delete link start -->
+        <%= link_to amenity_preference, method: :delete, data: { confirm: "Do you really want to delete this amenity_preference" } do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+        <!-- Delete link end -->
+
+      </li>
+    <% end %>
+
+    <div class="card-footer">
+      <div class="collapse" id="amenity_amenity_preferences_new_form">
+        <!-- New associationcollection form start -->
+
+        <!-- New associationcollection form end -->
+      </div>
+    </div>
+
+  </ul>
+</div>

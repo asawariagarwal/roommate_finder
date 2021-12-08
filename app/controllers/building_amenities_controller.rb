@@ -42,8 +42,14 @@ class BuildingAmenitiesController < ApplicationController
   # DELETE /building_amenities/1
   def destroy
     @building_amenity.destroy
-    redirect_to building_amenities_url, notice: 'Building amenity was successfully destroyed.'
+    message = "BuildingAmenity was successfully deleted."
+    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referrer, notice: message
+    else
+      redirect_to building_amenities_url, notice: message
+    end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
