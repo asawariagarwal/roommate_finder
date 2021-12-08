@@ -42,7 +42,7 @@
 
     <%= f.label :category %>
     <!-- Input for category start -->
-    <%= f.number_field :category, class: category_class, placeholder: "Enter category" %>
+    <%= f.select :category, options_for_select(Amenity.categories.keys), {}, class: "form-control" %>
     <!-- Input for category end -->
     <% if category_was_invalid %>
       <% amenity.errors.full_messages_for(:category).each do |message| %>
