@@ -24,7 +24,12 @@ class ListingPhotosController < ApplicationController
     @listing_photo = ListingPhoto.new(listing_photo_params)
 
     if @listing_photo.save
-      redirect_to @listing_photo, notice: 'Listing photo was successfully created.'
+      message = 'ListingPhoto was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @listing_photo, notice: message
+      end
     else
       render :new
     end

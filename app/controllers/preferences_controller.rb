@@ -8,6 +8,7 @@ class PreferencesController < ApplicationController
 
   # GET /preferences/1
   def show
+    @amenity_preference = AmenityPreference.new
   end
 
   # GET /preferences/new
@@ -24,7 +25,12 @@ class PreferencesController < ApplicationController
     @preference = Preference.new(preference_params)
 
     if @preference.save
-      redirect_to @preference, notice: 'Preference was successfully created.'
+      message = 'Preference was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @preference, notice: message
+      end
     else
       render :new
     end

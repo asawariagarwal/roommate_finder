@@ -24,7 +24,12 @@ class BuildingAmenitiesController < ApplicationController
     @building_amenity = BuildingAmenity.new(building_amenity_params)
 
     if @building_amenity.save
-      redirect_to @building_amenity, notice: 'Building amenity was successfully created.'
+      message = 'BuildingAmenity was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @building_amenity, notice: message
+      end
     else
       render :new
     end

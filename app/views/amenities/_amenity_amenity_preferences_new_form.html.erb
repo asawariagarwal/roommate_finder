@@ -1,0 +1,22 @@
+<!-- Form amenity_preference start -->
+<%= form_with(model: @amenity_preference, local: true) do |f| %>
+<!-- Form amenity_preference end -->
+
+  <!-- Label and input for amenity_id start -->
+  <!-- Input for amenity_id start -->
+  <%= f.hidden_field :amenity_id, value: @amenity.id %>
+  <!-- Input for amenity_id end -->
+  <!-- Label and input for amenity_id end -->
+
+  <!-- Label and input for preference_id start -->
+  <div class="form-group">
+    <%= f.label :preference_id %>
+
+    <!-- Input for preference_id start -->
+    <%= f.text_field :preference_id, class: "form-control" %>
+    <!-- Input for preference_id end -->
+  </div>
+  <!-- Label and input for preference_id end -->
+
+  <%= f.submit "Create amenity preference", class: "btn btn-block btn-outline-secondary" %>
+<% end %>

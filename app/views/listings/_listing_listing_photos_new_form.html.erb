@@ -1,0 +1,32 @@
+<!-- Form listing_photo start -->
+<%= form_with(model: @listing_photo, local: true) do |f| %>
+<!-- Form listing_photo end -->
+
+  <!-- Label and input for listing_id start -->
+  <!-- Input for listing_id start -->
+  <%= f.hidden_field :listing_id, value: @listing.id %>
+  <!-- Input for listing_id end -->
+  <!-- Label and input for listing_id end -->
+
+  <!-- Label and input for photo start -->
+  <div class="form-group">
+    <%= f.label :photo %>
+
+    <!-- Input for photo start -->
+    <%= f.text_field :photo, class: "form-control" %>
+    <!-- Input for photo end -->
+  </div>
+  <!-- Label and input for photo end -->
+
+  <!-- Label and input for caption start -->
+  <div class="form-group">
+    <%= f.label :caption %>
+
+    <!-- Input for caption start -->
+    <%= f.text_field :caption, class: "form-control" %>
+    <!-- Input for caption end -->
+  </div>
+  <!-- Label and input for caption end -->
+
+  <%= f.submit "Create listing photo", class: "btn btn-block btn-outline-secondary" %>
+<% end %>

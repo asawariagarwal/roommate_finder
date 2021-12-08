@@ -1,0 +1,62 @@
+<!-- Form listing start -->
+<%= form_with(model: @listing, local: true) do |f| %>
+<!-- Form listing end -->
+
+  <!-- Label and input for building_id start -->
+  <!-- Input for building_id start -->
+  <%= f.hidden_field :building_id, value: @building.id %>
+  <!-- Input for building_id end -->
+  <!-- Label and input for building_id end -->
+
+  <!-- Label and input for unit_type start -->
+  <div class="form-group">
+    <%= f.label :unit_type %>
+
+    <!-- Input for unit_type start -->
+    <%= f.text_field :unit_type, class: "form-control" %>
+    <!-- Input for unit_type end -->
+  </div>
+  <!-- Label and input for unit_type end -->
+
+  <!-- Label and input for lease_length start -->
+  <div class="form-group">
+    <%= f.label :lease_length %>
+
+    <!-- Input for lease_length start -->
+    <%= f.text_field :lease_length, class: "form-control" %>
+    <!-- Input for lease_length end -->
+  </div>
+  <!-- Label and input for lease_length end -->
+
+  <!-- Label and input for price start -->
+  <div class="form-group">
+    <%= f.label :price %>
+
+    <!-- Input for price start -->
+    <%= f.text_field :price, class: "form-control" %>
+    <!-- Input for price end -->
+  </div>
+  <!-- Label and input for price end -->
+
+  <!-- Label and input for earliest_move_in start -->
+  <div class="form-group">
+    <%= f.label :earliest_move_in %>
+
+    <!-- Input for earliest_move_in start -->
+    <%= f.date_select :earliest_move_in, class: "form-control" %>
+    <!-- Input for earliest_move_in end -->
+  </div>
+  <!-- Label and input for earliest_move_in end -->
+
+  <!-- Label and input for floorplan start -->
+  <div class="form-group">
+    <%= f.label :floorplan %>
+
+    <!-- Input for floorplan start -->
+    <%= f.text_field :floorplan, class: "form-control" %>
+    <!-- Input for floorplan end -->
+  </div>
+  <!-- Label and input for floorplan end -->
+
+  <%= f.submit "Create listing", class: "btn btn-block btn-outline-secondary" %>
+<% end %>

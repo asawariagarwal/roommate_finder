@@ -24,7 +24,12 @@ class AmenityPreferencesController < ApplicationController
     @amenity_preference = AmenityPreference.new(amenity_preference_params)
 
     if @amenity_preference.save
-      redirect_to @amenity_preference, notice: 'Amenity preference was successfully created.'
+      message = 'AmenityPreference was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @amenity_preference, notice: message
+      end
     else
       render :new
     end

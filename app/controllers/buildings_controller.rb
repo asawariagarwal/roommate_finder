@@ -8,6 +8,9 @@ class BuildingsController < ApplicationController
 
   # GET /buildings/1
   def show
+    @listing = Listing.new
+    @building_amenity = BuildingAmenity.new
+    @building_photo = BuildingPhoto.new
   end
 
   # GET /buildings/new

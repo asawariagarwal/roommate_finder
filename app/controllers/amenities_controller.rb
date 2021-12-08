@@ -8,6 +8,8 @@ class AmenitiesController < ApplicationController
 
   # GET /amenities/1
   def show
+    @amenity_preference = AmenityPreference.new
+    @building_amenity = BuildingAmenity.new
   end
 
   # GET /amenities/new

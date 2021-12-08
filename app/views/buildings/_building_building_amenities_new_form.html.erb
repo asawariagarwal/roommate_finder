@@ -1,0 +1,22 @@
+<!-- Form building_amenity start -->
+<%= form_with(model: @building_amenity, local: true) do |f| %>
+<!-- Form building_amenity end -->
+
+  <!-- Label and input for building_id start -->
+  <!-- Input for building_id start -->
+  <%= f.hidden_field :building_id, value: @building.id %>
+  <!-- Input for building_id end -->
+  <!-- Label and input for building_id end -->
+
+  <!-- Label and input for amenity_id start -->
+  <div class="form-group">
+    <%= f.label :amenity_id %>
+
+    <!-- Input for amenity_id start -->
+    <%= f.text_field :amenity_id, class: "form-control" %>
+    <!-- Input for amenity_id end -->
+  </div>
+  <!-- Label and input for amenity_id end -->
+
+  <%= f.submit "Create building amenity", class: "btn btn-block btn-outline-secondary" %>
+<% end %>
