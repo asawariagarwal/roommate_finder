@@ -1,6 +1,8 @@
 class BuildingPhoto < ApplicationRecord
   # Direct associations
 
+  belongs_to :building
+
   # Indirect associations
 
   # Validations
