@@ -1,0 +1,18 @@
+class Preference < ApplicationRecord
+  enum roommie_gender_preference: {"male"=>0, "female"=>1, "no_preference"=>2} 
+
+  enum unit_type: {"b"=>0, "b2b"=>1, "b3b"=>2, "flexible"=>3} 
+
+  # Direct associations
+
+  # Indirect associations
+
+  # Validations
+
+  # Scopes
+
+  def to_s
+    user.to_s
+  end
+
+end

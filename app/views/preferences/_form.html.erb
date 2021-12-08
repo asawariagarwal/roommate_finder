@@ -1,0 +1,264 @@
+<% was_validated = preference.errors.any? %>
+
+<%= form_with(model: preference, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for user_id start -->
+  <div class="form-group">
+    <% user_class = "form-control" %>
+    <% user_was_invalid = preference.errors.include?(:user) %>
+
+    <% if was_validated %>
+      <% if user_was_invalid %>
+        <% user_class << " is-invalid" %>
+      <% else %>
+        <% user_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :user_id %>
+    <!-- Input for user_id start -->
+    <%= f.number_field :user_id, class: user_class, placeholder: "Enter user" %>
+    <!-- Input for user_id end -->
+    <% if user_was_invalid %>
+      <% preference.errors.full_messages_for(:user).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for user_id end -->
+  <!-- Label and input for budget_max start -->
+  <div class="form-group">
+    <% budget_max_class = "form-control" %>
+    <% budget_max_was_invalid = preference.errors.include?(:budget_max) %>
+
+    <% if was_validated %>
+      <% if budget_max_was_invalid %>
+        <% budget_max_class << " is-invalid" %>
+      <% else %>
+        <% budget_max_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :budget_max %>
+    <!-- Input for budget_max start -->
+    <%= f.text_field :budget_max, class: budget_max_class, placeholder: "Enter budget max" %>
+    <!-- Input for budget_max end -->
+    <% if budget_max_was_invalid %>
+      <% preference.errors.full_messages_for(:budget_max).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for budget_max end -->
+  <!-- Label and input for preferred_move_in start -->
+  <div class="form-group">
+    <% preferred_move_in_class = "form-control" %>
+    <% preferred_move_in_was_invalid = preference.errors.include?(:preferred_move_in) %>
+
+    <% if was_validated %>
+      <% if preferred_move_in_was_invalid %>
+        <% preferred_move_in_class << " is-invalid" %>
+      <% else %>
+        <% preferred_move_in_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :preferred_move_in %>
+    <!-- Input for preferred_move_in start -->
+    <%= f.date_select :preferred_move_in, class: preferred_move_in_class, placeholder: "Enter preferred move in" %>
+    <!-- Input for preferred_move_in end -->
+    <% if preferred_move_in_was_invalid %>
+      <% preference.errors.full_messages_for(:preferred_move_in).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for preferred_move_in end -->
+  <!-- Label and input for unit_type start -->
+  <div class="form-group">
+    <% unit_type_class = "form-control" %>
+    <% unit_type_was_invalid = preference.errors.include?(:unit_type) %>
+
+    <% if was_validated %>
+      <% if unit_type_was_invalid %>
+        <% unit_type_class << " is-invalid" %>
+      <% else %>
+        <% unit_type_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :unit_type %>
+    <!-- Input for unit_type start -->
+    <%= f.number_field :unit_type, class: unit_type_class, placeholder: "Enter unit type" %>
+    <!-- Input for unit_type end -->
+    <% if unit_type_was_invalid %>
+      <% preference.errors.full_messages_for(:unit_type).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for unit_type end -->
+  <!-- Label and input for cleanliness start -->
+  <div class="form-group">
+    <% cleanliness_class = "form-control" %>
+    <% cleanliness_was_invalid = preference.errors.include?(:cleanliness) %>
+
+    <% if was_validated %>
+      <% if cleanliness_was_invalid %>
+        <% cleanliness_class << " is-invalid" %>
+      <% else %>
+        <% cleanliness_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :cleanliness %>
+    <!-- Input for cleanliness start -->
+    <%= f.number_field :cleanliness, class: cleanliness_class, placeholder: "Enter cleanliness" %>
+    <!-- Input for cleanliness end -->
+    <% if cleanliness_was_invalid %>
+      <% preference.errors.full_messages_for(:cleanliness).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for cleanliness end -->
+  <!-- Label and input for hosting start -->
+  <div class="form-group">
+    <% hosting_class = "form-control" %>
+    <% hosting_was_invalid = preference.errors.include?(:hosting) %>
+
+    <% if was_validated %>
+      <% if hosting_was_invalid %>
+        <% hosting_class << " is-invalid" %>
+      <% else %>
+        <% hosting_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :hosting %>
+    <!-- Input for hosting start -->
+    <%= f.number_field :hosting, class: hosting_class, placeholder: "Enter hosting" %>
+    <!-- Input for hosting end -->
+    <% if hosting_was_invalid %>
+      <% preference.errors.full_messages_for(:hosting).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for hosting end -->
+  <!-- Label and input for neighborhood start -->
+  <div class="form-group">
+    <% neighborhood_class = "form-control" %>
+    <% neighborhood_was_invalid = preference.errors.include?(:neighborhood) %>
+
+    <% if was_validated %>
+      <% if neighborhood_was_invalid %>
+        <% neighborhood_class << " is-invalid" %>
+      <% else %>
+        <% neighborhood_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :neighborhood %>
+    <!-- Input for neighborhood start -->
+    <%= f.text_field :neighborhood, class: neighborhood_class, placeholder: "Enter neighborhood" %>
+    <!-- Input for neighborhood end -->
+    <% if neighborhood_was_invalid %>
+      <% preference.errors.full_messages_for(:neighborhood).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for neighborhood end -->
+  <!-- Label and input for notes start -->
+  <div class="form-group">
+    <% note_class = "form-control" %>
+    <% note_was_invalid = preference.errors.include?(:note) %>
+
+    <% if was_validated %>
+      <% if note_was_invalid %>
+        <% note_class << " is-invalid" %>
+      <% else %>
+        <% note_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :notes %>
+    <!-- Input for notes start -->
+    <%= f.text_area :notes, class: note_class, placeholder: "Enter note" %>
+    <!-- Input for notes end -->
+    <% if note_was_invalid %>
+      <% preference.errors.full_messages_for(:note).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for notes end -->
+  <!-- Label and input for pet_friendly start -->
+  <div class="form-check">
+    <% pet_friendly_class = "form-check-input" %>
+    <% pet_friendly_was_invalid = preference.errors.include?(:pet_friendly) %>
+
+    <% if was_validated %>
+      <% if pet_friendly_was_invalid %>
+        <% pet_friendly_class << " is-invalid" %>
+      <% else %>
+        <% pet_friendly_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :pet_friendly, class: "form-check-label" do %>
+      <%= f.check_box :pet_friendly, class: pet_friendly_class %> Pet friendly
+    <% end %>
+    <% if pet_friendly_was_invalid %>
+      <% preference.errors.full_messages_for(:pet_friendly).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for pet_friendly end -->
+  <!-- Label and input for roommie_gender_preference start -->
+  <div class="form-group">
+    <% roommie_gender_preference_class = "form-control" %>
+    <% roommie_gender_preference_was_invalid = preference.errors.include?(:roommie_gender_preference) %>
+
+    <% if was_validated %>
+      <% if roommie_gender_preference_was_invalid %>
+        <% roommie_gender_preference_class << " is-invalid" %>
+      <% else %>
+        <% roommie_gender_preference_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :roommie_gender_preference %>
+    <!-- Input for roommie_gender_preference start -->
+    <%= f.number_field :roommie_gender_preference, class: roommie_gender_preference_class, placeholder: "Enter roommie gender preference" %>
+    <!-- Input for roommie_gender_preference end -->
+    <% if roommie_gender_preference_was_invalid %>
+      <% preference.errors.full_messages_for(:roommie_gender_preference).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for roommie_gender_preference end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
