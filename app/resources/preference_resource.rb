@@ -15,6 +15,8 @@ class PreferenceResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :user
+
   has_many   :amenity_preferences
 
   # Indirect associations
