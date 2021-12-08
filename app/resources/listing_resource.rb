@@ -11,6 +11,8 @@ class ListingResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :messages
+
   has_many   :listing_photos
 
   has_many   :favorites
